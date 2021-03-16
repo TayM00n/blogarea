@@ -1,0 +1,11 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Blog for everyone",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd client && npm start"
+  },
+  "author": "Ivan Hroitskyi",
+  "license": "ISC"
+}
