@@ -60,32 +60,31 @@ body{
 }
 
 /* width */
-.container-posts::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 3px;
 }
 
 /* Track */
-.container-posts::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background: white;
     border-radius: 10px;
     margin: 15px;
 }
 
 /* Handle */
-.container-posts::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: #c6c1c1;
     border-radius: 10px;
 }
 
 /* Handle on hover */
-.container-posts::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover{
     background: #555555;
 }
 
-.container-posts > .post{
+.container-posts > .post, .container-users > .user{
     background-color: #F4F4F4;
     border-radius: 15px;
-    padding: 0px 5px;
 }
 
 .page-view{
@@ -104,11 +103,11 @@ body{
     border-bottom: 1px solid #cd8c52;
 }
 
-.post-body {
-    padding: 7px 20px !important;
+.post-body, .post-footer, .user{
+    padding: 7px !important;
 }
 
-.container-posts > .post:hover{
+.container-posts > .post:hover, .container-users > .user:hover{
     cursor: pointer;
     background-color: #c4c4c4 !important;
 }
@@ -121,6 +120,16 @@ body{
 .post .img > img{
     width: 100%;
     height: 100%;
+}
+
+.avatar-thumb{
+    max-width: 100px !important;
+    max-height: 100px !important;
+    min-width: 100px !important;
+    min-height: 100px !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 100% !important;
 }
 
 .back, .next {
@@ -338,6 +347,14 @@ body{
 
     .container-posts, .container-users{
         height: 80vh;
+    }
+
+    .post h1{
+        font-size: 1rem !important;
+    }
+
+    .post p{
+        font-size: .7rem !important;
     }
 }
 
