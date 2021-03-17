@@ -24,7 +24,7 @@ const GuestHomePage = () => {
     </svg>
   }
 
-  const images = ["https://placeimg.com/180/100/any", "https://placeimg.com/180/100/people", "https://placeimg.com/180/100/animal"]
+  const images = ["/slide1.png", "/slide2.png", "/slide3.png"]
 
   return (
     <div className="hv-100 d-flex flex-column justify-content-center">
@@ -37,7 +37,7 @@ const GuestHomePage = () => {
             <div className='back rounded-circle'
                  onClick={() => handleSlideChange(active - 1 === 0 ? images.length : active - 1)}><IconBack/></div> :
             <div className='rounded-circle'><IconBack/></div>}
-          <div className='car-pagination mx-auto d-flex flex-column justify-content-between'>
+          <div className='car-pagination mx-auto d-flex flex-column justify-content-between '>
             <div className={`${active === 1 ? "active" : ""}`} onClick={() => handleSlideChange(1)}></div>
             <div className={`${active === 2 ? "active" : ""}`} onClick={() => handleSlideChange(2)}></div>
             <div className={`${active === 3 ? "active" : ""}`} onClick={() => handleSlideChange(3)}></div>
