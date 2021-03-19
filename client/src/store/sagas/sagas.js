@@ -1,5 +1,5 @@
 import {put, takeEvery} from "redux-saga/effects"
-import {setCurrentPage, setIsLogin, setJWT, setMenuState, setTypeOfStorage} from "../actions";
+import {setCurrentPage, setIsLogin, setJWT, setMenuState, setModeView, setTypeOfStorage} from "../actions";
 
 function* grSetJWT(action) {
   yield put(setJWT(action.userId))
@@ -20,12 +20,17 @@ function* grSetTypeOfStorage(action){
   yield put(setTypeOfStorage(action.typeOfStorage))
 }
 
+function* grSetModeView(action){
+  yield  put(setModeView(action.modeView))
+}
+
 function* mySaga() {
   yield takeEvery("SET_JWT_REQUEST", grSetJWT)
   yield takeEvery("SET_CURRENT_PAGE_REQUEST", grSetCurrentPage)
   yield takeEvery("SET_MENU_STATE_REQUEST", grSetMenuState)
   yield takeEvery("SET_IS_LOGIN_REQUEST", grSetIsLogin)
   yield takeEvery("SET_TYPE_OF_STORAGE_REQUEST", grSetTypeOfStorage)
+  yield takeEvery("SET_MODE_VIEW_REQUEST", grSetModeView)
 }
 
 /*

@@ -95,7 +95,7 @@ body {
     border-bottom: 1px solid #cd8c52;
 }
 
-.post-body, .post-footer, .user {
+.post-body, .post-footer, .container-users > .user {
     padding: 7px !important;
 }
 
@@ -113,11 +113,11 @@ body {
     cursor: pointer;
 }
 
-.post:hover, .user:hover {
+.post:hover, .container-users > .user:hover {
     box-shadow: 0px 2px 2px 2px #c4c4c488;
 }
 
-.post .post-title > h1, .user {
+.post .post-title > h1, .container-users > .user {
     cursor: pointer;
 }
 
@@ -228,9 +228,9 @@ body {
 }
 
 .menu-items > a > div, .menu-items > div {
-    border-width: 1.5px 3px;
-    border-style: solid;
-    border-color: white;
+    border-width: 1.5px 3px !important;
+    border-style: solid !important;
+    border-color: white !important;
 }
 
 .menu-items .logo > img, .menu-items > a > div {
@@ -239,7 +239,7 @@ body {
 }
 
 .menu-items > a > div > svg {
-    margin: 0 .5rem;
+    margin: 0 .5rem !important;
 }
 
 .menu-items > a > div:hover {

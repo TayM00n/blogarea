@@ -18,7 +18,7 @@ export const setItemToLocalStore = (key, value) => {
   localStorage.setItem(key, value)
 }
 
-const OwnApp = connect((state)=>({global: state.globalReducer, homePage: state.homePageReducer}))(App)
+const OwnApp = connect((state)=>({global: state.globalReducer}))(App)
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

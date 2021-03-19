@@ -131,7 +131,7 @@ function App({global}) {
       "email": "alexie.hoeger@cfeo.io",
       "phone": "634-774-7523",
       "like": 52,
-      "dislike": 52
+      "dislike": 1
     },
     {
       "id": "MYXpyK",
@@ -144,7 +144,7 @@ function App({global}) {
       "country": "Maldives",
       "email": "rosario.tillman@cfeo.io",
       "phone": "990-509-6928",
-      "like": 52,
+      "like": 2,
       "dislike": 52
     },
     {
@@ -158,7 +158,7 @@ function App({global}) {
       "country": "Myanmar",
       "email": "vince.romaguera@cfeo.io",
       "phone": "535-557-3554",
-      "like": 52,
+      "like": 512,
       "dislike": 52
     },
     {
@@ -172,8 +172,8 @@ function App({global}) {
       "country": "Thailand",
       "email": "delphine.mcdermott@cfeo.io",
       "phone": "897-387-5681",
-      "like": 52,
-      "dislike": 52
+      "like": 5,
+      "dislike": 2
     },
     {
       "id": "nK8rsQ",
@@ -186,8 +186,8 @@ function App({global}) {
       "country": "Iraq",
       "email": "christy.beahan@cfeo.io",
       "phone": "300-793-3494",
-      "like": 52,
-      "dislike": 52
+      "like": 12,
+      "dislike": 2
     },
     {
       "id": "GIylBH",
@@ -200,8 +200,8 @@ function App({global}) {
       "country": "France",
       "email": "torrey.torphy@cfeo.io",
       "phone": "944-784-5805",
-      "like": 52,
-      "dislike": 52
+      "like": 2,
+      "dislike": 2
     },
     {
       "id": "iPg0nZ",
@@ -214,8 +214,8 @@ function App({global}) {
       "country": "Bosnia and Herzegovina",
       "email": "austen.kovacek@cfeo.io",
       "phone": "428-972-2615",
-      "like": 52,
-      "dislike": 52
+      "like": 2,
+      "dislike": 512
     },
     {
       "id": "NNvP08",
@@ -228,8 +228,8 @@ function App({global}) {
       "country": "Jordan",
       "email": "magali.gibson@cfeo.io",
       "phone": "322-834-9909",
-      "like": 52,
-      "dislike": 52
+      "like": 152,
+      "dislike": 2
     },
     {
       "id": "XusUFV",
@@ -242,7 +242,7 @@ function App({global}) {
       "country": "Albania",
       "email": "ryley.flatley@cfeo.io",
       "phone": "722-287-1248",
-      "like": 52,
+      "like": 112,
       "dislike": 52
     },
     {
@@ -256,7 +256,7 @@ function App({global}) {
       "country": "American Samoa",
       "email": "anais.oberbrunner@cfeo.io",
       "phone": "570-740-9173",
-      "like": 52,
+      "like": 32,
       "dislike": 52
     }
   ]

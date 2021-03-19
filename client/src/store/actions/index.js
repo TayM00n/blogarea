@@ -24,3 +24,8 @@ export const setTypeOfStorage = typeOfStorage => ({
   type: TYPES.SET_TYPE_OF_STORAGE,
   typeOfStorage
 })
+
+export const setModeView = modeView => ({
+  type: TYPES.AUTHORSTYPES.SET_MODE_VIEW,
+  modeView
+})

@@ -1,30 +1,65 @@
 import React, {useState} from "react";
 import {FormControl} from "react-bootstrap";
 import {Icons} from "../Icons";
+import {connect} from "react-redux";
 
-const AuthorsPage = ({isLogin, posts, users}) => {
-
-  const [modePostsView, setModePostsView] = useState("All posts");
-  const [numViews, setNumViews] = useState({posts: 25, users: 25})
-  const [postsView, setPostsView] = useState([...posts])
-  const [usersView, setUsersView] = useState([...users])
-
-  const sordPost = (arr, filter = "rating") => {
+const sortArray = (arr, filter = "rating") => {
+  console.log(typeof filter);
+  if (typeof filter === "string") {
     return arr.sort((a, b) => {
       if (a[filter] > b[filter]) return -1
       if (a[filter] < b[filter]) return 1
       return 0
     })
   }
+  if (typeof filter === "object") {
+    if (filter.indexOf("like") >= 0 && filter.indexOf("dislike") >= 0)
 
-  const handleModePostsView = (e) => {
-    setModePostsView(e.target.value)
+      return arr.sort((a, b) => {
+        let avgA = (a[filter[0]] + a[filter[1]]) / 2
+        let avgB = (b[filter[0]] + b[filter[1]]) / 2
+        /*console.log(`AVG-A|(${a[filter[0]]} + ${a[filter[1]]})/ 2 = `,avgA)
+        console.log(`AVG-B|(${b[filter[0]]} + ${b[filter[1]]})/ 2 = `,avgB)*/
+        if (avgA > avgB) return -1
+        if (avgA < avgB) return 1
+        return 0
+      })
+  }
+  /**/
+}
 
-    if (e.target.value === "All posts") {
-      setPostsView([...posts])
-    } else {
-      let tempAr = sordPost([...posts])
-      setPostsView(tempAr)
+const TempAuthorsPage = ({isLogin, posts, users, modeView, dispatch}) => {
+  const [postsView, setPostsView] = useState([...posts])
+  const [usersView, setUsersView] = useState([...users])
+
+  const handleModeView = (e) => {
+    let parentClassName = e.nativeEvent.path[1].classList[0].split("-")
+    console.log(e.target.value)
+    dispatch({
+      type: "SET_MODE_VIEW_REQUEST",
+      modeView: {...modeView, [parentClassName[parentClassName.length - 1]]: e.target.value}
+    })
+    switch (parentClassName[parentClassName.length - 1]) {
+      case "posts": {
+        if (e.target.value === "All posts") {
+          setPostsView([...posts])
+        } else {
+          let tempAr = sortArray([...posts])
+          setPostsView(tempAr)
+        }
+        break;
+      }
+      case "users": {
+        if (e.target.value === "All users") {
+          setUsersView([...users])
+        } else {
+          let tempAr = sortArray([...users], ["like", "dislike"])
+          setUsersView(tempAr)
+        }
+        break;
+      }
+      default:
+        return "Nothing sorted"
     }
   }
 
@@ -52,7 +87,7 @@ const AuthorsPage = ({isLogin, posts, users}) => {
                 <div className='col-md p-0 my-auto mx-1 order-3 order-md-2'>
                   <div className="d-flex flex-row justify-content-around">
                     <div className="rating mx-1">
-                      <Icons.IconRating color={post.rating>0 ? "green" : "red"}/>{post.rating}
+                      <Icons.IconRating color={post.rating > 0 ? "green" : "red"}/>{post.rating}
                     </div>
                     <div className="saved mx-1">
                       <Icons.IconSaved/>{" " + post.saved}
@@ -63,7 +98,7 @@ const AuthorsPage = ({isLogin, posts, users}) => {
                   </div>
                 </div>
                 <div className="more col-md my-auto p-0 mx-1 d-flex justify-content-end order-1 order-md-3">
-                  <a className="btn more my-auto">More<Icons.IconNextV2/></a>
+                  <a className="btn more my-auto" href={post.full}>More<Icons.IconNextV2/></a>
                 </div>
               </div>
             </div>
@@ -90,52 +125,49 @@ const AuthorsPage = ({isLogin, posts, users}) => {
     })
   }
 
+  const Tab = ({children, colSize}) => {
+    const [numViews, setNumViews] = useState({posts: 25, users: 25})
+
+    const tabName = children.type.name.toLowerCase();
+    return (
+      <div className={`${colSize} ${tabName} d-flex flex-column justify-content-center`}>
+        <div className="page-view d-flex flex-row justify-content-around mx-auto">
+          {[25, 50, 100].map(item =>
+            <p key={item}
+               className={numViews[tabName] === item ? "active" : ""}
+               onClick={() => setNumViews({...numViews, [tabName]: item})}>
+              {item}
+            </p>)}
+        </div>
+        <div className={`custom-select-${tabName} mx-auto`}>
+          <FormControl as="select" className="px-5" value={modeView[tabName]} onChange={handleModeView}>
+            <option>All {tabName}</option>
+            <option>Top 10</option>
+          </FormControl>
+        </div>
+        <div className={`container-${tabName} rounded-20`}>
+          {children}
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className='fullPage'>
       <div className="d-flex flex-row justify-content-center hv-100">
         <div className='row d-flex flex-row justify-content-between w-100'>
-          <div className="col-lg-9 posts d-flex flex-column justify-content-center">
-            <div className="page-view d-flex flex-row justify-content-around mx-auto">
-              <p className={numViews.posts === 25 ? "active" : ""}
-                 onClick={() => setNumViews({...numViews, posts: 25})}>25</p>
-              <p className={numViews.posts === 50 ? "active" : ""}
-                 onClick={() => setNumViews({...numViews, posts: 50})}>50</p>
-              <p className={numViews.posts === 100 ? "active" : ""}
-                 onClick={() => setNumViews({...numViews, posts: 100})}>100</p>
-            </div>
-            <div className="custom-select-authors mx-auto">
-              <FormControl as="select" className="px-5" onChange={handleModePostsView}>
-                <option>All posts</option>
-                <option>Top 10</option>
-              </FormControl>
-            </div>
-            <div className="container-posts rounded-20">
-              <Posts posts={postsView}/>
-            </div>
-          </div>
-          <div className="col users d-flex flex-column justify-content-center">
-            <div className="page-view d-flex flex-row justify-content-around mx-auto">
-              <p className={numViews.users === 25 ? "active" : ""}
-                 onClick={() => setNumViews({...numViews, users: 25})}>25</p>
-              <p className={numViews.users === 50 ? "active" : ""}
-                 onClick={() => setNumViews({...numViews, users: 50})}>50</p>
-              <p className={numViews.users === 100 ? "active" : ""}
-                 onClick={() => setNumViews({...numViews, users: 100})}>100</p>
-            </div>
-            <div className="custom-select-users mx-auto">
-              <FormControl as="select" className="px-5">
-                <option>All users</option>
-                <option>Top 10</option>
-              </FormControl>
-            </div>
-            <div className="container-users rounded-20">
-              <Users users={usersView}/>
-            </div>
-          </div>
+          <Tab colSize="col-lg-9">
+            <Posts posts={postsView}/>
+          </Tab>
+          <Tab colSize="col">
+            <Users users={usersView}/>
+          </Tab>
         </div>
       </div>
     </div>
   )
 }
+
+const AuthorsPage = connect((state) => ({modeView: state.authorReducer.modeView}))(TempAuthorsPage)
 
 export default AuthorsPage
