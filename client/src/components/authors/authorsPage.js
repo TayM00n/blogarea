@@ -31,6 +31,17 @@ const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
 
   useEffect(()=>{
     sortData.forEach((item,index)=>{
+      console.log((authors.currentPagePostsUsers.users*authors.countView.users > users.length) , users.length > authors.countView.users)
+      if((authors.currentPagePostsUsers.posts*authors.countView.posts > posts.length) && (posts.length > authors.countView.posts))
+        dispatch({
+          type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
+          currentPagePostsUsers: {...authors.currentPagePostsUsers, "posts": 1}
+        })
+      if((authors.currentPagePostsUsers.users * authors.countView.users > users.length) && (users.length > authors.countView.users))
+        dispatch({
+          type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
+          currentPagePostsUsers: {...authors.currentPagePostsUsers, "users": Math.ceil(users.length/authors.countView.users)}
+        })
       switch (index){
         case 0: setPostsView([...setDataView("posts")]); break;
         case 1: setUsersView([...setDataView("users")]); break;
@@ -135,11 +146,13 @@ const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
 
   const setDataView = (name)=>{
     let loadData = authors.currentPagePostsUsers[name]*authors.countView[name]
-    /*if(loadData > (name === "posts" ? posts.length : users.length)){
+    console.log(loadData, loadData > (name === "posts" ? posts.length : users.length))
+    /*if(authors.currentPagePostsUsers[name]*authors.countView[name] > (name === "posts" ? posts.length : users.length)){
       dispatch({
         type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
         currentPagePostsUsers: {...authors.currentPagePostsUsers, [name]: 1}
       })
+      console.log("here",name, authors.currentPagePostsUsers[name], authors.countView[name])
       loadData = authors.currentPagePostsUsers[name]*authors.countView[name]
     }*/
     console.log(name, loadData, authors.countView[name])
@@ -202,7 +215,7 @@ const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
             <p key={item}
                className={authors.countView[tabName] === item ? "active" : ""}
                onClick={() => {
-                 dispatch({
+                  dispatch({
                    type: "SET_COUNT_VIEW_REQUEST",
                    countView: {...authors.countView, [tabName]: item}
                  })

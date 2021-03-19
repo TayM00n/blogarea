@@ -70,8 +70,8 @@ body {
 }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #555555;
+::-webkit-scrollbar-thumb:hover{
+    background: #555555 !important;
 }
 
 .container-posts > .post, .container-users > .user {
@@ -348,7 +348,7 @@ body {
 }
 
 .pagination > .active, .pagination > .active:hover {
-    box-shadow: 0px 2px 0px 1px #ada49b44 !important;
+    box-shadow: 0px 2px 0px 1px #ada49b !important;
 }
 
 @media only screen and (max-width: 1200px) {
