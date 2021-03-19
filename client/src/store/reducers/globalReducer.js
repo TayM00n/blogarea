@@ -26,17 +26,11 @@ const globalReducer = (state = initState, action) => {
         currentPage: action.currentPage
       }
     }
-    case TYPES.SET_CURRENT_PAGE_SAGA:{
-      return state
-    }
     case TYPES.SET_MENU_STATE:{
       return {
         ...state,
         menuState: action.menuState
       }
-    }
-    case TYPES.SET_MENU_STATE_SAGA:{
-      return state
     }
     case TYPES.SET_IS_LOGIN:{
       return {
@@ -44,17 +38,11 @@ const globalReducer = (state = initState, action) => {
         isLogin: action.isLogin
       }
     }
-    case TYPES.SET_IS_LOGIN_SAGA:{
-      return state
-    }
     case TYPES.SET_TYPE_OF_STORAGE:{
       return {
         ...state,
         typeOfStorage: action.typeOfStorage
       }
-    }
-    case TYPES.SET_TYPE_OF_STORAGE_SAGA:{
-      return state
     }
     default: return state
   }

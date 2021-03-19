@@ -29,3 +29,13 @@ export const setModeView = modeView => ({
   type: TYPES.AUTHORSTYPES.SET_MODE_VIEW,
   modeView
 })
+
+export const setCountView = countView => ({
+  type: TYPES.AUTHORSTYPES.SET_COUNT_VIEW,
+  countView
+})
+
+export const setCurrentPagePostsUsers = currentPagePostsUsers => ({
+  type: TYPES.AUTHORSTYPES.SET_CURRENT_PAGE_USERS_POSTS,
+  currentPagePostsUsers
+})

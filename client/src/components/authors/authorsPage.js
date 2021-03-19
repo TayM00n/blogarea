@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {FormControl} from "react-bootstrap";
 import {Icons} from "../Icons";
 import {connect} from "react-redux";
@@ -14,30 +14,37 @@ const sortArray = (arr, filter = "rating") => {
   }
   if (typeof filter === "object") {
     if (filter.indexOf("like") >= 0 && filter.indexOf("dislike") >= 0)
-
       return arr.sort((a, b) => {
         let avgA = (a[filter[0]] + a[filter[1]]) / 2
         let avgB = (b[filter[0]] + b[filter[1]]) / 2
-        /*console.log(`AVG-A|(${a[filter[0]]} + ${a[filter[1]]})/ 2 = `,avgA)
-        console.log(`AVG-B|(${b[filter[0]]} + ${b[filter[1]]})/ 2 = `,avgB)*/
         if (avgA > avgB) return -1
         if (avgA < avgB) return 1
         return 0
       })
   }
-  /**/
 }
 
-const TempAuthorsPage = ({isLogin, posts, users, modeView, dispatch}) => {
+const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
   const [postsView, setPostsView] = useState([...posts])
   const [usersView, setUsersView] = useState([...users])
+  const [sortData, setSortData] = useState([[...postsView],[...usersView]])
+
+  useEffect(()=>{
+    sortData.forEach((item,index)=>{
+      switch (index){
+        case 0: setPostsView([...setDataView("posts")]); break;
+        case 1: setUsersView([...setDataView("users")]); break;
+        default: console.log(item)
+      }
+    })
+  }, [authors.countView, authors.currentPagePostsUsers])
 
   const handleModeView = (e) => {
     let parentClassName = e.nativeEvent.path[1].classList[0].split("-")
     console.log(e.target.value)
     dispatch({
       type: "SET_MODE_VIEW_REQUEST",
-      modeView: {...modeView, [parentClassName[parentClassName.length - 1]]: e.target.value}
+      modeView: {...authors.modeView, [parentClassName[parentClassName.length - 1]]: e.target.value}
     })
     switch (parentClassName[parentClassName.length - 1]) {
       case "posts": {
@@ -87,7 +94,8 @@ const TempAuthorsPage = ({isLogin, posts, users, modeView, dispatch}) => {
                 <div className='col-md p-0 my-auto mx-1 order-3 order-md-2'>
                   <div className="d-flex flex-row justify-content-around">
                     <div className="rating mx-1">
-                      <Icons.IconRating color={post.rating > 0 ? "green" : "red"}/>{post.rating}
+                      <Icons.IconRating
+                        color={post.rating > 0 ? "green" : post.rating === 0 ? "currentColor" : "red"}/>{post.rating}
                     </div>
                     <div className="saved mx-1">
                       <Icons.IconSaved/>{" " + post.saved}
@@ -125,28 +133,96 @@ const TempAuthorsPage = ({isLogin, posts, users, modeView, dispatch}) => {
     })
   }
 
+  const setDataView = (name)=>{
+    let loadData = authors.currentPagePostsUsers[name]*authors.countView[name]
+    /*if(loadData > (name === "posts" ? posts.length : users.length)){
+      dispatch({
+        type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
+        currentPagePostsUsers: {...authors.currentPagePostsUsers, [name]: 1}
+      })
+      loadData = authors.currentPagePostsUsers[name]*authors.countView[name]
+    }*/
+    console.log(name, loadData, authors.countView[name])
+    let temp = []
+    for(let i = (loadData-authors.countView[name]); i < loadData; i++){
+      if((name === "posts" && i<posts.length) || (name === "users" && i<users.length))name==="posts" ? temp.push(posts[i]) : temp.push(users[i]);
+    }
+    return temp
+  }
+
+  const handleOnPageChange = async (name, rez)=>{
+    await  dispatch({
+      type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
+      currentPagePostsUsers: {
+        ...authors.currentPagePostsUsers,
+        [name]: rez
+      }
+    })
+    name === "posts" ? setPostsView([...setDataView(name)]) : setUsersView([...setDataView(name)])
+  }
+
+  const Pagination = ({length, name}) => {
+    //let length = 120
+    let stop = 5
+    let pages = []
+    for (let i = 0; i <= length + 1; i++) {
+      pages.push(i)
+    }
+
+    return pages.map(page => {
+      if (page === 0) {
+        return <div key={page}
+                    style={{cursor:"pointer"}}
+                    className={`${authors.currentPagePostsUsers[name] - 1 > 0 ? "bg-light" : ""} rounded-circle`}
+                    onClick={() => authors.currentPagePostsUsers[name] - 1 > 0 ? handleOnPageChange(name, authors.currentPagePostsUsers[name] - 1) : ""}><Icons.IconBackV2/></div>
+      }
+      if (page === length + 1) {
+        return <div key={page}
+                    style={{cursor:"pointer"}}
+                    className={`${authors.currentPagePostsUsers[name] + 1 <= length ? "bg-light" : ""} rounded-circle`}
+                    onClick={() => authors.currentPagePostsUsers[name] + 1 <= length ? handleOnPageChange(name, authors.currentPagePostsUsers[name] + 1) : ""}><Icons.IconNextV2/></div>
+      }
+      if (length > stop) {
+        if (page === stop) return <div key={page}>...</div>
+      }
+
+      if ((length > stop && (page < stop || page === length)) || length <= stop)
+        return <div key={page} className={`${authors.currentPagePostsUsers[name] === page ? "active" : ""} page`}
+                    onClick={(e) => length > 1 && handleOnPageChange(name, +e.target.textContent)}>{page}</div>
+    })
+  }
+
   const Tab = ({children, colSize}) => {
-    const [numViews, setNumViews] = useState({posts: 25, users: 25})
 
     const tabName = children.type.name.toLowerCase();
     return (
-      <div className={`${colSize} ${tabName} d-flex flex-column justify-content-center`}>
+      <div className={`${colSize} ${tabName} d-flex flex-column justify-content-center py-2`}>
         <div className="page-view d-flex flex-row justify-content-around mx-auto">
           {[25, 50, 100].map(item =>
             <p key={item}
-               className={numViews[tabName] === item ? "active" : ""}
-               onClick={() => setNumViews({...numViews, [tabName]: item})}>
+               className={authors.countView[tabName] === item ? "active" : ""}
+               onClick={() => {
+                 dispatch({
+                   type: "SET_COUNT_VIEW_REQUEST",
+                   countView: {...authors.countView, [tabName]: item}
+                 })
+               }}>
               {item}
             </p>)}
         </div>
         <div className={`custom-select-${tabName} mx-auto`}>
-          <FormControl as="select" className="px-5" value={modeView[tabName]} onChange={handleModeView}>
+          <FormControl as="select" className="px-5" value={authors.modeView[tabName]} onChange={handleModeView}>
             <option>All {tabName}</option>
             <option>Top 10</option>
           </FormControl>
         </div>
         <div className={`container-${tabName} rounded-20`}>
           {children}
+        </div>
+        <div className="pagination d-flex flex-row justify-content-center m-0">
+          <Pagination
+            length={tabName === "posts" ? Math.ceil(posts.length / authors.countView[tabName.substr(0, tabName.length)]) : Math.ceil(users.length / authors.countView[tabName.substr(0, tabName.length)])}
+            name={tabName}/>
         </div>
       </div>
     )
@@ -156,7 +232,7 @@ const TempAuthorsPage = ({isLogin, posts, users, modeView, dispatch}) => {
     <div className='fullPage'>
       <div className="d-flex flex-row justify-content-center hv-100">
         <div className='row d-flex flex-row justify-content-between w-100'>
-          <Tab colSize="col-lg-9">
+          <Tab colSize="col-lg-8" dataView={postsView}>
             <Posts posts={postsView}/>
           </Tab>
           <Tab colSize="col">
@@ -168,6 +244,6 @@ const TempAuthorsPage = ({isLogin, posts, users, modeView, dispatch}) => {
   )
 }
 
-const AuthorsPage = connect((state) => ({modeView: state.authorReducer.modeView}))(TempAuthorsPage)
+const AuthorsPage = connect((state) => ({authors: state.authorReducer}))(TempAuthorsPage)
 
 export default AuthorsPage
