@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {FormControl} from "react-bootstrap";
 import {Icons} from "../Icons";
 import {connect} from "react-redux";
@@ -24,30 +24,43 @@ const sortArray = (arr, filter = "rating") => {
   }
 }
 
+function usePrevious(value) {
+  const ref = useRef();
+  useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
+}
+
 const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
   const [postsView, setPostsView] = useState([...posts])
   const [usersView, setUsersView] = useState([...users])
-  const [sortData, setSortData] = useState([[...postsView],[...usersView]])
+  const [sortData, setSortData] = useState({posts: [...postsView], users: [...usersView]})
+  let prevPosts = usePrevious([...postsView])
+  const prevUsers = usePrevious([...usersView])
 
-  useEffect(()=>{
-    sortData.forEach((item,index)=>{
-      console.log((authors.currentPagePostsUsers.users*authors.countView.users > users.length) , users.length > authors.countView.users)
-      if((authors.currentPagePostsUsers.posts*authors.countView.posts > posts.length) && (posts.length > authors.countView.posts))
+  useEffect(() => {
+    if(prevPosts){
+      if ((authors.currentPagePostsUsers.posts * authors.countView.posts > posts.length) && (posts.length > authors.countView.posts))
         dispatch({
           type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
           currentPagePostsUsers: {...authors.currentPagePostsUsers, "posts": 1}
         })
-      if((authors.currentPagePostsUsers.users * authors.countView.users > users.length) && (users.length > authors.countView.users))
+      if ((authors.currentPagePostsUsers.users * authors.countView.users > users.length) && (users.length > authors.countView.users))
         dispatch({
           type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
-          currentPagePostsUsers: {...authors.currentPagePostsUsers, "users": Math.ceil(users.length/authors.countView.users)}
+          currentPagePostsUsers: {
+            ...authors.currentPagePostsUsers,
+            "users": Math.ceil(users.length / authors.countView.users)
+          }
         })
-      switch (index){
-        case 0: setPostsView([...setDataView("posts")]); break;
-        case 1: setUsersView([...setDataView("users")]); break;
-        default: console.log(item)
-      }
-    })
+
+      console.log(prevPosts)
+      authors.modeView.posts === "All posts" && setPostsView([...setDataView("posts")]);
+      authors.modeView.users === "All users" && setUsersView([...setDataView("users")]);
+      authors.modeView.posts === "Top 10" && setPostsView([...setSortDataView("posts")])
+      authors.modeView.users === "Top 10" && setUsersView([...setSortDataView("users")])
+    }
   }, [authors.countView, authors.currentPagePostsUsers])
 
   const handleModeView = (e) => {
@@ -63,7 +76,8 @@ const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
           setPostsView([...posts])
         } else {
           let tempAr = sortArray([...posts])
-          setPostsView(tempAr)
+          setSortData({...sortData, [parentClassName[parentClassName.length - 1]]: [...tempAr]})
+          setPostsView([...setSortDataView(parentClassName[parentClassName.length - 1])])
         }
         break;
       }
@@ -72,7 +86,8 @@ const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
           setUsersView([...users])
         } else {
           let tempAr = sortArray([...users], ["like", "dislike"])
-          setUsersView(tempAr)
+          setSortData({...sortData, [parentClassName[parentClassName.length - 1]]: [...tempAr]})
+          setUsersView([...setSortDataView(parentClassName[parentClassName.length - 1])])
         }
         break;
       }
@@ -144,9 +159,7 @@ const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
     })
   }
 
-  const setDataView = (name)=>{
-    let loadData = authors.currentPagePostsUsers[name]*authors.countView[name]
-    console.log(loadData, loadData > (name === "posts" ? posts.length : users.length))
+  const setDataView = (name) => {
     /*if(authors.currentPagePostsUsers[name]*authors.countView[name] > (name === "posts" ? posts.length : users.length)){
       dispatch({
         type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
@@ -155,23 +168,37 @@ const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
       console.log("here",name, authors.currentPagePostsUsers[name], authors.countView[name])
       loadData = authors.currentPagePostsUsers[name]*authors.countView[name]
     }*/
-    console.log(name, loadData, authors.countView[name])
+    let loadData = authors.currentPagePostsUsers[name] * authors.countView[name]
+    /*console.log(loadData, loadData > (name === "posts" ? posts.length : users.length))
+    console.log(name, loadData, authors.countView[name])*/
     let temp = []
-    for(let i = (loadData-authors.countView[name]); i < loadData; i++){
-      if((name === "posts" && i<posts.length) || (name === "users" && i<users.length))name==="posts" ? temp.push(posts[i]) : temp.push(users[i]);
+    for (let i = (loadData - authors.countView[name]); i < loadData; i++) {
+      if ((name === "posts" && i < posts.length) || (name === "users" && i < users.length)) name === "posts" ? temp.push(posts[i]) : temp.push(users[i]);
     }
     return temp
   }
 
-  const handleOnPageChange = async (name, rez)=>{
-    await  dispatch({
+  const setSortDataView = (name) => {
+    let loadData = authors.currentPagePostsUsers[name] * authors.countView[name]
+    let temp = []
+    for (let i = (loadData - authors.countView[name]); i < loadData; i++) {
+      if (i < sortData[name].length) temp.push(sortData[name][i]);
+    }
+    return temp
+  }
+
+  const handleOnPageChange = async (name, rez) => {
+    await dispatch({
       type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
       currentPagePostsUsers: {
         ...authors.currentPagePostsUsers,
         [name]: rez
       }
     })
-    name === "posts" ? setPostsView([...setDataView(name)]) : setUsersView([...setDataView(name)])
+    /*if (authors.modeView[name] === ("All " + name))
+      name === "posts" ? setPostsView([...setDataView(name)]) : setUsersView([...setDataView(name)])
+    else
+      name === "posts" ? setPostsView([...setSortDataView(name)]) : setUsersView([...setSortDataView(name)])*/
   }
 
   const Pagination = ({length, name}) => {
@@ -185,15 +212,17 @@ const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
     return pages.map(page => {
       if (page === 0) {
         return <div key={page}
-                    style={{cursor:"pointer"}}
+                    style={{cursor: "pointer"}}
                     className={`${authors.currentPagePostsUsers[name] - 1 > 0 ? "bg-light" : ""} rounded-circle`}
-                    onClick={() => authors.currentPagePostsUsers[name] - 1 > 0 ? handleOnPageChange(name, authors.currentPagePostsUsers[name] - 1) : ""}><Icons.IconBackV2/></div>
+                    onClick={() => authors.currentPagePostsUsers[name] - 1 > 0 ? handleOnPageChange(name, authors.currentPagePostsUsers[name] - 1) : ""}>
+          <Icons.IconBackV2/></div>
       }
       if (page === length + 1) {
         return <div key={page}
-                    style={{cursor:"pointer"}}
+                    style={{cursor: "pointer"}}
                     className={`${authors.currentPagePostsUsers[name] + 1 <= length ? "bg-light" : ""} rounded-circle`}
-                    onClick={() => authors.currentPagePostsUsers[name] + 1 <= length ? handleOnPageChange(name, authors.currentPagePostsUsers[name] + 1) : ""}><Icons.IconNextV2/></div>
+                    onClick={() => authors.currentPagePostsUsers[name] + 1 <= length ? handleOnPageChange(name, authors.currentPagePostsUsers[name] + 1) : ""}>
+          <Icons.IconNextV2/></div>
       }
       if (length > stop) {
         if (page === stop) return <div key={page}>...</div>
@@ -215,7 +244,7 @@ const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
             <p key={item}
                className={authors.countView[tabName] === item ? "active" : ""}
                onClick={() => {
-                  dispatch({
+                 dispatch({
                    type: "SET_COUNT_VIEW_REQUEST",
                    countView: {...authors.countView, [tabName]: item}
                  })
@@ -245,7 +274,7 @@ const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
     <div className='fullPage'>
       <div className="d-flex flex-row justify-content-center hv-100">
         <div className='row d-flex flex-row justify-content-between w-100'>
-          <Tab colSize="col-lg-8" dataView={postsView}>
+          <Tab colSize="col-lg-8">
             <Posts posts={postsView}/>
           </Tab>
           <Tab colSize="col">
