@@ -36,63 +36,43 @@ const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
   const [postsView, setPostsView] = useState([...posts])
   const [usersView, setUsersView] = useState([...users])
   const [sortData, setSortData] = useState({posts: [...postsView], users: [...usersView]})
-  let prevPosts = usePrevious([...postsView])
-  const prevUsers = usePrevious([...usersView])
 
   useEffect(() => {
-    if(prevPosts){
-      if ((authors.currentPagePostsUsers.posts * authors.countView.posts > posts.length) && (posts.length > authors.countView.posts))
-        dispatch({
-          type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
-          currentPagePostsUsers: {...authors.currentPagePostsUsers, "posts": 1}
-        })
-      if ((authors.currentPagePostsUsers.users * authors.countView.users > users.length) && (users.length > authors.countView.users))
-        dispatch({
-          type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
-          currentPagePostsUsers: {
-            ...authors.currentPagePostsUsers,
-            "users": Math.ceil(users.length / authors.countView.users)
-          }
-        })
 
-      console.log(prevPosts)
-      authors.modeView.posts === "All posts" && setPostsView([...setDataView("posts")]);
-      authors.modeView.users === "All users" && setUsersView([...setDataView("users")]);
-      authors.modeView.posts === "Top 10" && setPostsView([...setSortDataView("posts")])
-      authors.modeView.users === "Top 10" && setUsersView([...setSortDataView("users")])
+    if ((authors.currentPagePostsUsers.posts * authors.countView.posts > posts.length) && (posts.length > authors.countView.posts)) {
+      dispatch({
+        type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
+        currentPagePostsUsers: {...authors.currentPagePostsUsers, "posts": 1}
+      })
     }
-  }, [authors.countView, authors.currentPagePostsUsers])
+    if ((authors.currentPagePostsUsers.users * authors.countView.users > users.length) && (users.length > authors.countView.users)) {
+      dispatch({
+        type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
+        currentPagePostsUsers: {
+          ...authors.currentPagePostsUsers,
+          "users": Math.ceil(users.length / authors.countView.users)
+        }
+      })
+    }
+    (authors.modeView.posts === "All posts") && setPostsView([...setDataView("posts")]);
+    (authors.modeView.posts === "Top 10") && setPostsView([...setSortDataView("posts")]);
+    (authors.modeView.users === "All users") && setUsersView([...setDataView("users")]);
+    (authors.modeView.users === "Top 10") && setUsersView([...setSortDataView("users")]);
+  }, [authors.countView, authors.currentPagePostsUsers, authors.modeView])
 
   const handleModeView = (e) => {
-    let parentClassName = e.nativeEvent.path[1].classList[0].split("-")
     console.log(e.target.value)
+
+    let parentClassName = e.nativeEvent.path[1].classList[0].split("-")
+    parentClassName = parentClassName[parentClassName.length - 1]
     dispatch({
       type: "SET_MODE_VIEW_REQUEST",
-      modeView: {...authors.modeView, [parentClassName[parentClassName.length - 1]]: e.target.value}
+      modeView: {...authors.modeView, [parentClassName]: e.target.value}
     })
-    switch (parentClassName[parentClassName.length - 1]) {
-      case "posts": {
-        if (e.target.value === "All posts") {
-          setPostsView([...posts])
-        } else {
-          let tempAr = sortArray([...posts])
-          setSortData({...sortData, [parentClassName[parentClassName.length - 1]]: [...tempAr]})
-          setPostsView([...setSortDataView(parentClassName[parentClassName.length - 1])])
-        }
-        break;
-      }
-      case "users": {
-        if (e.target.value === "All users") {
-          setUsersView([...users])
-        } else {
-          let tempAr = sortArray([...users], ["like", "dislike"])
-          setSortData({...sortData, [parentClassName[parentClassName.length - 1]]: [...tempAr]})
-          setUsersView([...setSortDataView(parentClassName[parentClassName.length - 1])])
-        }
-        break;
-      }
-      default:
-        return "Nothing sorted"
+
+    if (e.target.value === ("Top 10")) {
+      let tempAr = parentClassName === "posts" ? sortArray([...posts]) : sortArray([...users], ["like", "dislike"])
+      setSortData({...sortData, [parentClassName]: [...tempAr]})
     }
   }
 
@@ -160,17 +140,7 @@ const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
   }
 
   const setDataView = (name) => {
-    /*if(authors.currentPagePostsUsers[name]*authors.countView[name] > (name === "posts" ? posts.length : users.length)){
-      dispatch({
-        type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
-        currentPagePostsUsers: {...authors.currentPagePostsUsers, [name]: 1}
-      })
-      console.log("here",name, authors.currentPagePostsUsers[name], authors.countView[name])
-      loadData = authors.currentPagePostsUsers[name]*authors.countView[name]
-    }*/
     let loadData = authors.currentPagePostsUsers[name] * authors.countView[name]
-    /*console.log(loadData, loadData > (name === "posts" ? posts.length : users.length))
-    console.log(name, loadData, authors.countView[name])*/
     let temp = []
     for (let i = (loadData - authors.countView[name]); i < loadData; i++) {
       if ((name === "posts" && i < posts.length) || (name === "users" && i < users.length)) name === "posts" ? temp.push(posts[i]) : temp.push(users[i]);
@@ -195,10 +165,6 @@ const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
         [name]: rez
       }
     })
-    /*if (authors.modeView[name] === ("All " + name))
-      name === "posts" ? setPostsView([...setDataView(name)]) : setUsersView([...setDataView(name)])
-    else
-      name === "posts" ? setPostsView([...setSortDataView(name)]) : setUsersView([...setSortDataView(name)])*/
   }
 
   const Pagination = ({length, name}) => {
