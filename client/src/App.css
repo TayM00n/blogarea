@@ -15,6 +15,20 @@ body {
     height: auto !important;
 }
 
+.MuiTouchRipple-root{
+    background-color: white;
+    z-index: -1 !important;
+}
+
+.MuiPaginationItem-page.Mui-selected, .MuiPaginationItem-page.Mui-selected:hover {
+    box-shadow: 0px 2px 0px 1px #ada49b !important;
+}
+
+.MuiPaginationItem-page:hover, .MuiPaginationItem-page.Mui-selected{
+    background-color: #f4f4f4 !important;
+}
+
+
 .car-item {
     width: 100% !important;
     height: auto !important;
@@ -351,7 +365,7 @@ body {
     box-shadow: 0px 2px 0px 1px #ada49b !important;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1500px) {
     .posts {
         flex: 100% !important;
         width: 100% !important;

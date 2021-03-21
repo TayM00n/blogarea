@@ -251,7 +251,7 @@ const TempAuthorsPage = ({isLogin, posts, users, authors}) => {
             length={tabName === "posts" ? Math.ceil(posts.length / authors.countView[tabName.substr(0, tabName.length)]) : Math.ceil(users.length / authors.countView[tabName.substr(0, tabName.length)])}
             name={tabName}
             stop={5}/>}*/}
-            <Pagination page={tabName === "posts" ? authors.currentPagePostsUsers.posts : authors.currentPagePostsUsers.users} count={tabName === "posts" ? Math.ceil(posts.length / authors.countView[tabName.substr(0, tabName.length)]) : Math.ceil(users.length / authors.countView[tabName.substr(0, tabName.length)])} onChange={(e, page)=> handleOnPageChange(tabName, page)}/>
+            <Pagination page={tabName === "posts" ? authors.currentPagePostsUsers.posts : authors.currentPagePostsUsers.users} count={tabName === "posts" ? Math.ceil(posts.length / authors.countView[tabName.substr(0, tabName.length)]) : Math.ceil(users.length / authors.countView[tabName.substr(0, tabName.length)])} onChange={(e, page)=> handleOnPageChange(tabName, page)} shape={"rounded"} size={"small"}/>
         </div>
       </div>
     )
@@ -261,7 +261,7 @@ const TempAuthorsPage = ({isLogin, posts, users, authors}) => {
     <div className='fullPage'>
       <div className="d-flex flex-row justify-content-center hv-100">
         <div className='row d-flex flex-row justify-content-between w-100'>
-          <Tab colSize="col-lg-8">
+          <Tab colSize="col-lg-9">
             <Posts posts={authors.postsView}/>
           </Tab>
           <Tab colSize="col">

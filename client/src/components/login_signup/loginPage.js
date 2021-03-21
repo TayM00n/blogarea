@@ -40,8 +40,8 @@ const LogIn = ({currentPage})=>{
       </Form.Group>
     <Form.Group>
       <div className='row d-flex flex-row justify-content-between'>
-        <Link to="/signup" className="btn col mx-3 btn-signup">Sign up</Link>
-        <Button className="col mx-3 btn-enter" onClick={handleSubmit}>Enter</Button>
+        <Link to="/signup" className="btn col mx-3 btn-outline-orange">Sign up</Link>
+        <Button className="col mx-3 btn-orange" onClick={handleSubmit}>Enter</Button>
       </div>
     </Form.Group>
     </LogInSignUp>
