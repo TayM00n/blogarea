@@ -9,7 +9,7 @@ const initState = {
 }
 
 const globalReducer = (state = initState, action) => {
-  console.log("STATE: ",state, "ACTION: ", action)
+  //console.log("STATE: ",state, "ACTION: ", action)
   switch (action.type){
     case TYPES.SET_JWT:{
       return {

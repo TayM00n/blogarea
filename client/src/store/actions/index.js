@@ -39,3 +39,13 @@ export const setCurrentPagePostsUsers = currentPagePostsUsers => ({
   type: TYPES.AUTHORSTYPES.SET_CURRENT_PAGE_USERS_POSTS,
   currentPagePostsUsers
 })
+
+export const setPostsView = (postsView)=>({
+  type: TYPES.AUTHORSTYPES.SET_POSTS_VIEW,
+  postsView
+})
+
+export const setUsersView = (usersView)=>({
+  type: TYPES.AUTHORSTYPES.SET_USERS_VIEW,
+  usersView
+})

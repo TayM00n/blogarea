@@ -1,43 +1,55 @@
 import {put, takeEvery} from "redux-saga/effects"
 import {
   setCountView,
-  setCurrentPage, setCurrentPagePostsUsers,
+  setCurrentPage, setCurrentPagePostsUsers, setDataView,
   setIsLogin,
   setJWT,
   setMenuState,
-  setModeView,
-  setTypeOfStorage
+  setModeView, setPostsView, setSortDataView,
+  setTypeOfStorage, setUsersView
 } from "../actions";
 
 function* grSetJWT(action) {
   yield put(setJWT(action.userId))
 }
 
-function* grSetCurrentPage(action){
+function* grSetCurrentPage(action) {
+  yield console.log("adadasdasd",action)
   yield put(setCurrentPage(action.currentPage))
 }
 
-function* grSetMenuState(action){
+function* grSetMenuState(action) {
   yield put(setMenuState(action.menuState))
 }
-function* grSetIsLogin(action){
+
+function* grSetIsLogin(action) {
   yield put(setIsLogin(action.isLogin))
 }
 
-function* grSetTypeOfStorage(action){
+function* grSetTypeOfStorage(action) {
   yield put(setTypeOfStorage(action.typeOfStorage))
 }
 
-function* grSetModeView(action){
-  yield  put(setModeView(action.modeView))
+function* grSetModeView(action) {
+  yield put(setModeView(action.modeView))
 }
 
-function* grSetCountView(action){
-  yield  put(setCountView(action.countView))
+function* grSetCountView(action) {
+  yield put(setCountView(action.countView))
 }
 
-function* grSetCurrentPagePostsUsers(action){
-  yield  put(setCurrentPagePostsUsers(action.currentPagePostsUsers))
+function* grSetCurrentPagePostsUsers(action) {
+  yield put(setCurrentPagePostsUsers(action.currentPagePostsUsers))
+}
+
+function* grSetPostsView(action) {
+  yield console.log("adadasdasd",action)
+  yield put(setPostsView(action.postsView))
+}
+
+function* grSetUsersView(action) {
+  yield console.log("adadasdasd",action)
+  yield put(setUsersView(action.usersView))
 }
 
 function* mySaga() {
@@ -49,6 +61,8 @@ function* mySaga() {
   yield takeEvery("SET_MODE_VIEW_REQUEST", grSetModeView)
   yield takeEvery("SET_COUNT_VIEW_REQUEST", grSetCountView)
   yield takeEvery("SET_CURRENT_PAGE_USERS_POSTS_REQUEST", grSetCurrentPagePostsUsers)
+  yield takeEvery("SET_POSTS_VIEW_REQUEST", grSetPostsView)
+  yield takeEvery("SET_USERS_VIEW_REQUEST", grSetUsersView)
 }
 
 export default mySaga

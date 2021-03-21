@@ -1,52 +1,64 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect} from "react";
 import {FormControl} from "react-bootstrap";
 import {Icons} from "../Icons";
 import {connect} from "react-redux";
+import {setValueToStore} from "../../index";
 
-const sortArray = (arr, filter = "rating") => {
-  console.log(typeof filter);
-  if (typeof filter === "string") {
-    return arr.sort((a, b) => {
-      if (a[filter] > b[filter]) return -1
-      if (a[filter] < b[filter]) return 1
-      return 0
-    })
-  }
-  if (typeof filter === "object") {
-    if (filter.indexOf("like") >= 0 && filter.indexOf("dislike") >= 0)
+const TempAuthorsPage = ({isLogin, posts, users, authors}) => {
+  /*const [postsView, setPostsView] = useState([])
+  const [usersView, setUsersView] = useState([])
+  //const [sortData, setSortData] = useState({posts: [...postsView], users: [...usersView]})*/
+
+  const sortArray = (arr, filter = "rating") => {
+    if (typeof filter === "string") {
       return arr.sort((a, b) => {
-        let avgA = (a[filter[0]] + a[filter[1]]) / 2
-        let avgB = (b[filter[0]] + b[filter[1]]) / 2
-        if (avgA > avgB) return -1
-        if (avgA < avgB) return 1
+        if (a[filter] > b[filter]) return -1
+        if (a[filter] < b[filter]) return 1
         return 0
       })
+    }
+    if (typeof filter === "object") {
+      if (filter.indexOf("like") >= 0 && filter.indexOf("dislike") >= 0)
+        return arr.sort((a, b) => {
+          let avgA = (a[filter[0]] + a[filter[1]]) / 2
+          let avgB = (b[filter[0]] + b[filter[1]]) / 2
+          if (avgA > avgB) return -1
+          if (avgA < avgB) return 1
+          return 0
+        })
+    }
   }
-}
 
-function usePrevious(value) {
-  const ref = useRef();
+  const setDataView = (name) => {
+    let loadData = authors.currentPagePostsUsers[name] * authors.countView[name]
+    let temp = []
+    for (let i = (loadData - authors.countView[name]); i < loadData; i++) {
+      if ((name === "posts" && i < posts.length) || (name === "users" && i < users.length)) name === "posts" ? temp.push(posts[i]) : temp.push(users[i]);
+    }
+    console.log(name, temp)
+    return temp
+  }
+
+  const setSortDataView = (name) => {
+
+    let loadData = authors.currentPagePostsUsers[name] * authors.countView[name]
+    let temp = []
+    let sortData = name === "posts" ? sortArray([...posts]) : sortArray([...users], ["like", "dislike"])
+    for (let i = (loadData - authors.countView[name]); i < loadData; i++) {
+      if (i < sortData.length) temp.push(sortData[i]);
+    }
+    return temp
+  }
+
   useEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
-}
-
-const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
-  const [postsView, setPostsView] = useState([...posts])
-  const [usersView, setUsersView] = useState([...users])
-  const [sortData, setSortData] = useState({posts: [...postsView], users: [...usersView]})
-
-  useEffect(() => {
-
     if ((authors.currentPagePostsUsers.posts * authors.countView.posts > posts.length) && (posts.length > authors.countView.posts)) {
-      dispatch({
+      setValueToStore({
         type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
         currentPagePostsUsers: {...authors.currentPagePostsUsers, "posts": 1}
       })
     }
     if ((authors.currentPagePostsUsers.users * authors.countView.users > users.length) && (users.length > authors.countView.users)) {
-      dispatch({
+      setValueToStore({
         type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
         currentPagePostsUsers: {
           ...authors.currentPagePostsUsers,
@@ -54,27 +66,41 @@ const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
         }
       })
     }
-    (authors.modeView.posts === "All posts") && setPostsView([...setDataView("posts")]);
-    (authors.modeView.posts === "Top 10") && setPostsView([...setSortDataView("posts")]);
-    (authors.modeView.users === "All users") && setUsersView([...setDataView("users")]);
-    (authors.modeView.users === "Top 10") && setUsersView([...setSortDataView("users")]);
-  }, [authors.countView, authors.currentPagePostsUsers, authors.modeView])
+
+    console.log("useEffect | dataView(posts)");
+    (authors.modeView.posts === "All posts") && setValueToStore({
+      type: "SET_POSTS_VIEW_REQUEST",
+      postsView: [...setDataView("posts")]
+    });
+    console.log("useEffect | dataView(users)");
+    (authors.modeView.users === "All users") && setValueToStore({
+      type: "SET_USERS_VIEW_REQUEST",
+      usersView: [...setDataView("users")]
+    });
+
+
+    console.log("useEffect | sortDataView(posts)");
+    (authors.modeView.posts === "Top 10") && setValueToStore({
+      type: "SET_POSTS_VIEW_REQUEST",
+      postsView: [...setSortDataView("posts")]
+    });
+    console.log("useEffect | sortDataView(users)");
+    (authors.modeView.users === "Top 10") && setValueToStore({
+      type: "SET_USERS_VIEW_REQUEST",
+      usersView: [...setSortDataView("users")]
+    });
+
+  }, [authors.countView, authors.currentPagePostsUsers, authors.modeView])// eslint-disable-line react-hooks/exhaustive-deps
 
   const handleModeView = (e) => {
-    console.log(e.target.value)
-
     let parentClassName = e.nativeEvent.path[1].classList[0].split("-")
     parentClassName = parentClassName[parentClassName.length - 1]
-    dispatch({
+    setValueToStore({
       type: "SET_MODE_VIEW_REQUEST",
       modeView: {...authors.modeView, [parentClassName]: e.target.value}
     })
-
-    if (e.target.value === ("Top 10")) {
-      let tempAr = parentClassName === "posts" ? sortArray([...posts]) : sortArray([...users], ["like", "dislike"])
-      setSortData({...sortData, [parentClassName]: [...tempAr]})
-    }
   }
+
 
   const Posts = ({posts}) => {
     return posts.map((post) => {
@@ -139,26 +165,8 @@ const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
     })
   }
 
-  const setDataView = (name) => {
-    let loadData = authors.currentPagePostsUsers[name] * authors.countView[name]
-    let temp = []
-    for (let i = (loadData - authors.countView[name]); i < loadData; i++) {
-      if ((name === "posts" && i < posts.length) || (name === "users" && i < users.length)) name === "posts" ? temp.push(posts[i]) : temp.push(users[i]);
-    }
-    return temp
-  }
-
-  const setSortDataView = (name) => {
-    let loadData = authors.currentPagePostsUsers[name] * authors.countView[name]
-    let temp = []
-    for (let i = (loadData - authors.countView[name]); i < loadData; i++) {
-      if (i < sortData[name].length) temp.push(sortData[name][i]);
-    }
-    return temp
-  }
-
-  const handleOnPageChange = async (name, rez) => {
-    await dispatch({
+  const handleOnPageChange = (name, rez) => {
+    setValueToStore({
       type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
       currentPagePostsUsers: {
         ...authors.currentPagePostsUsers,
@@ -167,9 +175,7 @@ const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
     })
   }
 
-  const Pagination = ({length, name}) => {
-    //let length = 120
-    let stop = 5
+  const Pagination = ({length, name, stop}) => {
     let pages = []
     for (let i = 0; i <= length + 1; i++) {
       pages.push(i)
@@ -194,14 +200,20 @@ const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
         if (page === stop) return <div key={page}>...</div>
       }
 
+      console.log(name, stop)
+      if (authors.currentPagePostsUsers[name] + 1 === stop && page + 1 === stop) {
+        stop += 4
+        console.log("YES", page)
+      }
+
       if ((length > stop && (page < stop || page === length)) || length <= stop)
         return <div key={page} className={`${authors.currentPagePostsUsers[name] === page ? "active" : ""} page`}
                     onClick={(e) => length > 1 && handleOnPageChange(name, +e.target.textContent)}>{page}</div>
+      return ""
     })
   }
 
   const Tab = ({children, colSize}) => {
-
     const tabName = children.type.name.toLowerCase();
     return (
       <div className={`${colSize} ${tabName} d-flex flex-column justify-content-center py-2`}>
@@ -210,7 +222,7 @@ const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
             <p key={item}
                className={authors.countView[tabName] === item ? "active" : ""}
                onClick={() => {
-                 dispatch({
+                 setValueToStore({
                    type: "SET_COUNT_VIEW_REQUEST",
                    countView: {...authors.countView, [tabName]: item}
                  })
@@ -228,9 +240,10 @@ const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
           {children}
         </div>
         <div className="pagination d-flex flex-row justify-content-center m-0">
-          <Pagination
+          {<Pagination
             length={tabName === "posts" ? Math.ceil(posts.length / authors.countView[tabName.substr(0, tabName.length)]) : Math.ceil(users.length / authors.countView[tabName.substr(0, tabName.length)])}
-            name={tabName}/>
+            name={tabName}
+            stop={5}/>}
         </div>
       </div>
     )
@@ -241,10 +254,10 @@ const TempAuthorsPage = ({isLogin, posts, users, authors, dispatch}) => {
       <div className="d-flex flex-row justify-content-center hv-100">
         <div className='row d-flex flex-row justify-content-between w-100'>
           <Tab colSize="col-lg-8">
-            <Posts posts={postsView}/>
+            <Posts posts={authors.postsView}/>
           </Tab>
           <Tab colSize="col">
-            <Users users={usersView}/>
+            <Users users={authors.usersView}/>
           </Tab>
         </div>
       </div>
