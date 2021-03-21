@@ -3,6 +3,9 @@ import {FormControl} from "react-bootstrap";
 import {Icons} from "../Icons";
 import {connect} from "react-redux";
 import {setValueToStore} from "../../index";
+import {Pagination} from "@material-ui/lab";
+
+let prevPage = {posts: 1, users: 1};
 
 const TempAuthorsPage = ({isLogin, posts, users, authors}) => {
   /*const [postsView, setPostsView] = useState([])
@@ -166,16 +169,20 @@ const TempAuthorsPage = ({isLogin, posts, users, authors}) => {
   }
 
   const handleOnPageChange = (name, rez) => {
-    setValueToStore({
-      type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
-      currentPagePostsUsers: {
-        ...authors.currentPagePostsUsers,
-        [name]: rez
-      }
-    })
+    if(prevPage[name] !== rez) {
+      prevPage[name] = rez
+      setValueToStore({
+        type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
+        currentPagePostsUsers: {
+          ...authors.currentPagePostsUsers,
+          [name]: rez
+        }
+      })
+
+    }
   }
 
-  const Pagination = ({length, name, stop}) => {
+  /*const Pagination = ({length, name, stop}) => {
     let pages = []
     for (let i = 0; i <= length + 1; i++) {
       pages.push(i)
@@ -211,7 +218,7 @@ const TempAuthorsPage = ({isLogin, posts, users, authors}) => {
                     onClick={(e) => length > 1 && handleOnPageChange(name, +e.target.textContent)}>{page}</div>
       return ""
     })
-  }
+  }*/
 
   const Tab = ({children, colSize}) => {
     const tabName = children.type.name.toLowerCase();
@@ -240,10 +247,11 @@ const TempAuthorsPage = ({isLogin, posts, users, authors}) => {
           {children}
         </div>
         <div className="pagination d-flex flex-row justify-content-center m-0">
-          {<Pagination
+          {/*{<Pagination
             length={tabName === "posts" ? Math.ceil(posts.length / authors.countView[tabName.substr(0, tabName.length)]) : Math.ceil(users.length / authors.countView[tabName.substr(0, tabName.length)])}
             name={tabName}
-            stop={5}/>}
+            stop={5}/>}*/}
+            <Pagination page={tabName === "posts" ? authors.currentPagePostsUsers.posts : authors.currentPagePostsUsers.users} count={tabName === "posts" ? Math.ceil(posts.length / authors.countView[tabName.substr(0, tabName.length)]) : Math.ceil(users.length / authors.countView[tabName.substr(0, tabName.length)])} onChange={(e, page)=> handleOnPageChange(tabName, page)}/>
         </div>
       </div>
     )
