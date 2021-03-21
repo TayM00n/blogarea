@@ -8,9 +8,6 @@ import {Pagination} from "@material-ui/lab";
 let prevPage = {posts: 1, users: 1};
 
 const TempAuthorsPage = ({isLogin, posts, users, authors}) => {
-  /*const [postsView, setPostsView] = useState([])
-  const [usersView, setUsersView] = useState([])
-  //const [sortData, setSortData] = useState({posts: [...postsView], users: [...usersView]})*/
 
   const sortArray = (arr, filter = "rating") => {
     if (typeof filter === "string") {
@@ -38,7 +35,6 @@ const TempAuthorsPage = ({isLogin, posts, users, authors}) => {
     for (let i = (loadData - authors.countView[name]); i < loadData; i++) {
       if ((name === "posts" && i < posts.length) || (name === "users" && i < users.length)) name === "posts" ? temp.push(posts[i]) : temp.push(users[i]);
     }
-    console.log(name, temp)
     return temp
   }
 
@@ -70,24 +66,20 @@ const TempAuthorsPage = ({isLogin, posts, users, authors}) => {
       })
     }
 
-    console.log("useEffect | dataView(posts)");
     (authors.modeView.posts === "All posts") && setValueToStore({
       type: "SET_POSTS_VIEW_REQUEST",
       postsView: [...setDataView("posts")]
     });
-    console.log("useEffect | dataView(users)");
     (authors.modeView.users === "All users") && setValueToStore({
       type: "SET_USERS_VIEW_REQUEST",
       usersView: [...setDataView("users")]
     });
 
 
-    console.log("useEffect | sortDataView(posts)");
     (authors.modeView.posts === "Top 10") && setValueToStore({
       type: "SET_POSTS_VIEW_REQUEST",
       postsView: [...setSortDataView("posts")]
     });
-    console.log("useEffect | sortDataView(users)");
     (authors.modeView.users === "Top 10") && setValueToStore({
       type: "SET_USERS_VIEW_REQUEST",
       usersView: [...setSortDataView("users")]
@@ -95,15 +87,26 @@ const TempAuthorsPage = ({isLogin, posts, users, authors}) => {
 
   }, [authors.countView, authors.currentPagePostsUsers, authors.modeView])// eslint-disable-line react-hooks/exhaustive-deps
 
-  const handleModeView = (e) => {
-    let parentClassName = e.nativeEvent.path[1].classList[0].split("-")
-    parentClassName = parentClassName[parentClassName.length - 1]
+  const handleModeView = (e, name) => {
     setValueToStore({
       type: "SET_MODE_VIEW_REQUEST",
-      modeView: {...authors.modeView, [parentClassName]: e.target.value}
+      modeView: {...authors.modeView, [name]: e.target.value}
     })
   }
 
+  const handleOnPageChange = (name, rez) => {
+    if(prevPage[name] !== rez) {
+      prevPage[name] = rez
+      setValueToStore({
+        type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
+        currentPagePostsUsers: {
+          ...authors.currentPagePostsUsers,
+          [name]: rez
+        }
+      })
+
+    }
+  }
 
   const Posts = ({posts}) => {
     return posts.map((post) => {
@@ -168,58 +171,6 @@ const TempAuthorsPage = ({isLogin, posts, users, authors}) => {
     })
   }
 
-  const handleOnPageChange = (name, rez) => {
-    if(prevPage[name] !== rez) {
-      prevPage[name] = rez
-      setValueToStore({
-        type: "SET_CURRENT_PAGE_USERS_POSTS_REQUEST",
-        currentPagePostsUsers: {
-          ...authors.currentPagePostsUsers,
-          [name]: rez
-        }
-      })
-
-    }
-  }
-
-  /*const Pagination = ({length, name, stop}) => {
-    let pages = []
-    for (let i = 0; i <= length + 1; i++) {
-      pages.push(i)
-    }
-
-    return pages.map(page => {
-      if (page === 0) {
-        return <div key={page}
-                    style={{cursor: "pointer"}}
-                    className={`${authors.currentPagePostsUsers[name] - 1 > 0 ? "bg-light" : ""} rounded-circle`}
-                    onClick={() => authors.currentPagePostsUsers[name] - 1 > 0 ? handleOnPageChange(name, authors.currentPagePostsUsers[name] - 1) : ""}>
-          <Icons.IconBackV2/></div>
-      }
-      if (page === length + 1) {
-        return <div key={page}
-                    style={{cursor: "pointer"}}
-                    className={`${authors.currentPagePostsUsers[name] + 1 <= length ? "bg-light" : ""} rounded-circle`}
-                    onClick={() => authors.currentPagePostsUsers[name] + 1 <= length ? handleOnPageChange(name, authors.currentPagePostsUsers[name] + 1) : ""}>
-          <Icons.IconNextV2/></div>
-      }
-      if (length > stop) {
-        if (page === stop) return <div key={page}>...</div>
-      }
-
-      console.log(name, stop)
-      if (authors.currentPagePostsUsers[name] + 1 === stop && page + 1 === stop) {
-        stop += 4
-        console.log("YES", page)
-      }
-
-      if ((length > stop && (page < stop || page === length)) || length <= stop)
-        return <div key={page} className={`${authors.currentPagePostsUsers[name] === page ? "active" : ""} page`}
-                    onClick={(e) => length > 1 && handleOnPageChange(name, +e.target.textContent)}>{page}</div>
-      return ""
-    })
-  }*/
-
   const Tab = ({children, colSize}) => {
     const tabName = children.type.name.toLowerCase();
     return (
@@ -238,7 +189,7 @@ const TempAuthorsPage = ({isLogin, posts, users, authors}) => {
             </p>)}
         </div>
         <div className={`custom-select-${tabName} mx-auto`}>
-          <FormControl as="select" className="px-5" value={authors.modeView[tabName]} onChange={handleModeView}>
+          <FormControl as="select" className="px-5" value={authors.modeView[tabName]} onChange={(e)=>handleModeView(e, tabName)}>
             <option>All {tabName}</option>
             <option>Top 10</option>
           </FormControl>
@@ -247,10 +198,6 @@ const TempAuthorsPage = ({isLogin, posts, users, authors}) => {
           {children}
         </div>
         <div className="pagination d-flex flex-row justify-content-center m-0">
-          {/*{<Pagination
-            length={tabName === "posts" ? Math.ceil(posts.length / authors.countView[tabName.substr(0, tabName.length)]) : Math.ceil(users.length / authors.countView[tabName.substr(0, tabName.length)])}
-            name={tabName}
-            stop={5}/>}*/}
             <Pagination page={tabName === "posts" ? authors.currentPagePostsUsers.posts : authors.currentPagePostsUsers.users} count={tabName === "posts" ? Math.ceil(posts.length / authors.countView[tabName.substr(0, tabName.length)]) : Math.ceil(users.length / authors.countView[tabName.substr(0, tabName.length)])} onChange={(e, page)=> handleOnPageChange(tabName, page)} shape={"rounded"} size={"small"}/>
         </div>
       </div>

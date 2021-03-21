@@ -1,11 +1,11 @@
 import {put, takeEvery} from "redux-saga/effects"
 import {
   setCountView,
-  setCurrentPage, setCurrentPagePostsUsers, setDataView,
+  setCurrentPage, setCurrentPagePostsUsers,
   setIsLogin,
   setJWT,
   setMenuState,
-  setModeView, setPostsView, setSortDataView,
+  setModeView, setPostsView,
   setTypeOfStorage, setUsersView
 } from "../actions";
 
@@ -14,7 +14,6 @@ function* grSetJWT(action) {
 }
 
 function* grSetCurrentPage(action) {
-  yield console.log("adadasdasd",action)
   yield put(setCurrentPage(action.currentPage))
 }
 
@@ -43,12 +42,10 @@ function* grSetCurrentPagePostsUsers(action) {
 }
 
 function* grSetPostsView(action) {
-  yield console.log("adadasdasd",action)
   yield put(setPostsView(action.postsView))
 }
 
 function* grSetUsersView(action) {
-  yield console.log("adadasdasd",action)
   yield put(setUsersView(action.usersView))
 }
 
