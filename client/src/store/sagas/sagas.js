@@ -6,8 +6,12 @@ import {
   setJWT,
   setMenuState,
   setModeView, setPostsView,
-  setTypeOfStorage, setUsersView
+  setTypeOfStorage, setUsersView, setWindowSize
 } from "../actions";
+
+function* grSetWindowSize(action){
+  yield put(setWindowSize(action.windowSize))
+}
 
 function* grSetJWT(action) {
   yield put(setJWT(action.userId))
@@ -60,6 +64,7 @@ function* mySaga() {
   yield takeEvery("SET_CURRENT_PAGE_USERS_POSTS_REQUEST", grSetCurrentPagePostsUsers)
   yield takeEvery("SET_POSTS_VIEW_REQUEST", grSetPostsView)
   yield takeEvery("SET_USERS_VIEW_REQUEST", grSetUsersView)
+  yield takeEvery("SET_WINDOW_SIZE_REQUEST", grSetWindowSize)
 }
 
 export default mySaga

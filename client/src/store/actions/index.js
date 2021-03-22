@@ -1,16 +1,21 @@
 import TYPES from "../TYPES";
 
+export const setWindowSize = (windowSize) => ({
+  type: TYPES.SET_WINDOW_SIZE,
+  windowSize
+})
+
 export const setJWT = (userId) => ({
   type: TYPES.SET_JWT,
   userId
 })
 
-export const setCurrentPage = (currentPage)=>({
+export const setCurrentPage = (currentPage) => ({
   type: TYPES.SET_CURRENT_PAGE,
   currentPage
 })
 
-export const setMenuState = (menuState)=>({
+export const setMenuState = (menuState) => ({
   type: TYPES.SET_MENU_STATE,
   menuState
 })
@@ -40,12 +45,12 @@ export const setCurrentPagePostsUsers = currentPagePostsUsers => ({
   currentPagePostsUsers
 })
 
-export const setPostsView = (postsView)=>({
+export const setPostsView = (postsView) => ({
   type: TYPES.AUTHORSTYPES.SET_POSTS_VIEW,
   postsView
 })
 
-export const setUsersView = (usersView)=>({
+export const setUsersView = (usersView) => ({
   type: TYPES.AUTHORSTYPES.SET_USERS_VIEW,
   usersView
 })

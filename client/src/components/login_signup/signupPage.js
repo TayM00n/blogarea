@@ -2,8 +2,9 @@ import React from "react";
 import {Button, Form} from "react-bootstrap";
 import LogInSignUp from "./login_signup";
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 
-const SignUp = ({currentPage})=>{
+const TempSignUp = ({currentPage})=>{
   return(
     <LogInSignUp currentPage={currentPage}>
       <Form.Group>
@@ -33,5 +34,7 @@ const SignUp = ({currentPage})=>{
     </LogInSignUp>
   )
 }
+
+const SignUp = connect((state)=>({currentPage: state.globalReducer.currentPage}))(TempSignUp)
 
 export default SignUp

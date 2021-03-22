@@ -5,20 +5,24 @@ const initState = {
   menuState: "show",
   userId: "",
   isLogin: false,
-  typeOfStorage: ""
+  typeOfStorage: "",
+  windowSize: {width: window.innerWidth, height: window.innerHeight}
 }
 
 const globalReducer = (state = initState, action) => {
   //console.log("STATE: ",state, "ACTION: ", action)
   switch (action.type){
+    case TYPES.SET_WINDOW_SIZE:{
+      return {
+        ...state,
+        windowSize: action.windowSize
+      }
+    }
     case TYPES.SET_JWT:{
       return {
         ...state,
         userId: action.userId
       }
-    }
-    case TYPES.SET_JWT_SAGA:{
-      return state
     }
     case TYPES.SET_CURRENT_PAGE:{
       return{

@@ -6,28 +6,28 @@ import {setValueToStore} from "../../index";
 import {Pagination} from "@material-ui/lab";
 
 let prevPage = {posts: 1, users: 1};
-
-const TempAuthorsPage = ({isLogin, posts, users, authors}) => {
-
-  const sortArray = (arr, filter = "rating") => {
-    if (typeof filter === "string") {
+let prevCountView = {posts: 25, users: 25}
+const sortArray = (arr, filter = "rating") => {
+  if (typeof filter === "string") {
+    return arr.sort((a, b) => {
+      if (a[filter] > b[filter]) return -1
+      if (a[filter] < b[filter]) return 1
+      return 0
+    })
+  }
+  if (typeof filter === "object") {
+    if (filter.indexOf("like") >= 0 && filter.indexOf("dislike") >= 0)
       return arr.sort((a, b) => {
-        if (a[filter] > b[filter]) return -1
-        if (a[filter] < b[filter]) return 1
+        let avgA = (a[filter[0]] + a[filter[1]]) / 2
+        let avgB = (b[filter[0]] + b[filter[1]]) / 2
+        if (avgA > avgB) return -1
+        if (avgA < avgB) return 1
         return 0
       })
-    }
-    if (typeof filter === "object") {
-      if (filter.indexOf("like") >= 0 && filter.indexOf("dislike") >= 0)
-        return arr.sort((a, b) => {
-          let avgA = (a[filter[0]] + a[filter[1]]) / 2
-          let avgB = (b[filter[0]] + b[filter[1]]) / 2
-          if (avgA > avgB) return -1
-          if (avgA < avgB) return 1
-          return 0
-        })
-    }
   }
+}
+
+const TempAuthorsPage = ({posts, users, authors}) => {
 
   const setDataView = (name) => {
     let loadData = authors.currentPagePostsUsers[name] * authors.countView[name]
@@ -108,13 +108,24 @@ const TempAuthorsPage = ({isLogin, posts, users, authors}) => {
     }
   }
 
+  const handleOnChangeCountView = (name, item) => {
+    if(prevCountView[name] !== item){
+      prevCountView[name] = item
+      setValueToStore({
+        type: "SET_COUNT_VIEW_REQUEST",
+        countView: {...authors.countView, [name]: item}
+      })
+    }
+
+  }
+
   const Posts = ({posts}) => {
     return posts.map((post) => {
       return (
         <div className="post d-flex my-2" key={post.id}>
           <div className='row post-body w-100 mx-auto'>
             <div className='col-4 img mx-auto'>
-              <img src={post.img} alt={post.title}/>
+              <img src={"https://placem.at/things?w=250&random="+post.img} alt={post.title}/>
             </div>
             <div className='col-lg d-flex flex-column justify-content-between'>
               <div>
@@ -174,17 +185,12 @@ const TempAuthorsPage = ({isLogin, posts, users, authors}) => {
   const Tab = ({children, colSize}) => {
     const tabName = children.type.name.toLowerCase();
     return (
-      <div className={`${colSize} ${tabName} d-flex flex-column justify-content-center py-2`}>
+      <div className={`${colSize} ${tabName} tab d-flex flex-column justify-content-center`}>
         <div className="page-view d-flex flex-row justify-content-around mx-auto">
           {[25, 50, 100].map(item =>
             <p key={item}
                className={authors.countView[tabName] === item ? "active" : ""}
-               onClick={() => {
-                 setValueToStore({
-                   type: "SET_COUNT_VIEW_REQUEST",
-                   countView: {...authors.countView, [tabName]: item}
-                 })
-               }}>
+               onClick={()=>handleOnChangeCountView(tabName,item)}>
               {item}
             </p>)}
         </div>
@@ -197,8 +203,13 @@ const TempAuthorsPage = ({isLogin, posts, users, authors}) => {
         <div className={`container-${tabName} rounded-20`}>
           {children}
         </div>
-        <div className="pagination d-flex flex-row justify-content-center m-0">
-            <Pagination page={tabName === "posts" ? authors.currentPagePostsUsers.posts : authors.currentPagePostsUsers.users} count={tabName === "posts" ? Math.ceil(posts.length / authors.countView[tabName.substr(0, tabName.length)]) : Math.ceil(users.length / authors.countView[tabName.substr(0, tabName.length)])} onChange={(e, page)=> handleOnPageChange(tabName, page)} shape={"rounded"} size={"small"}/>
+        <div className="pagination d-flex flex-row justify-content-center m-0 pb-5">
+            <Pagination
+              page={tabName === "posts" ? authors.currentPagePostsUsers.posts : authors.currentPagePostsUsers.users}
+              count={tabName === "posts" ? Math.ceil(posts.length / authors.countView[tabName.substr(0, tabName.length)]) : Math.ceil(users.length / authors.countView[tabName.substr(0, tabName.length)])}
+              onChange={(e, page)=> handleOnPageChange(tabName, page)}
+              shape={"round"}
+              size={"small"}/>
         </div>
       </div>
     )

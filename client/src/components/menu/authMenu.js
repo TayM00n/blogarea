@@ -1,18 +1,11 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {getItemFromLocalStore, setItemToLocalStore, setValueToStore} from "../../index";
 import Menu from "./menu";
 import {Link} from "react-router-dom";
 import {Icons} from "../Icons";
+import {connect} from "react-redux";
 
-const AuthMenu = ({currentPage, menuState}) => {
-
-  useEffect(() => {
-    menuState !== getItemFromLocalStore("stateMenu") && setValueToStore({
-      type: "SET_MENU_STATE_REQUEST",
-      menuState: getItemFromLocalStore("stateMenu")
-    })
-  }, [menuState])
-
+const TempAuthMenu = ({currentPage, menuState}) => {
 
   const handleSignOut = () => {
     setItemToLocalStore("user_jwt", "")
@@ -20,15 +13,8 @@ const AuthMenu = ({currentPage, menuState}) => {
     setValueToStore({type: "SET_IS_LOGIN_REQUEST", isLogin: false})
   }
 
-  const handleStateMenu = (show) => {
-    setItemToLocalStore("stateMenu", show)
-    setValueToStore({type: "SET_MENU_STATE_REQUEST", menuState: show})
-  }
-
   return menuState === "show" ? (
-    <Menu
-      menuState={menuState}
-      handleStateMenu={handleStateMenu}>
+    <Menu>
       <div className='menu-link d-flex flex-column '>
         <div className='menu-item mx-auto'>
           <Link to="/" className={`nav-link ${currentPage === "" ? 'active-menu' : ""}`}><Icons.IconHome width={50}
@@ -57,9 +43,7 @@ const AuthMenu = ({currentPage, menuState}) => {
         </div>
       </div>
     </Menu>) : (
-    <Menu
-      menuState={menuState}
-      handleStateMenu={handleStateMenu}>
+    <Menu>
       <div className='menu-items'>
         <div className='logo'>
           <img src="/short-logo.png" alt="short-logo"/>
@@ -91,5 +75,7 @@ const AuthMenu = ({currentPage, menuState}) => {
     </Menu>)
 
 }
+
+const AuthMenu = connect((state)=>({currentPage:state.globalReducer.currentPage, menuState: state.globalReducer.menuState}))(TempAuthMenu)
 
 export default AuthMenu

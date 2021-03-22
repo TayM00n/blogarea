@@ -9,7 +9,7 @@ const initState = {
 }
 
 const authorReducer = (state = initState, action) => {
-  //console.log("STATE: ", state, "\nACTION: ", action)
+  console.log("STATE: ", state, "\nACTION: ", action)
   switch (action.type) {
     case TYPES.AUTHORSTYPES.SET_MODE_VIEW:
       return {...state, modeView: action.modeView}

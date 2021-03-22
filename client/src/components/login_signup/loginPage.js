@@ -3,8 +3,9 @@ import {Button, Form} from "react-bootstrap";
 import {getItemFromLocalStore, setItemToLocalStore, setValueToStore} from "../../index";
 import LogInSignUp from "./login_signup";
 import {Link, useHistory} from "react-router-dom";
+import {connect} from "react-redux";
 
-const LogIn = ({currentPage})=>{
+const TempLogIn = ({currentPage})=>{
   const [password, setPassword] = useState("")
   const [email, setEmail] = useState("")
   const [isRemember, setIsRemember] = useState(false)
@@ -21,7 +22,6 @@ const LogIn = ({currentPage})=>{
       setValueToStore({type:"SET_JWT_REQUEST", userId: getItemFromLocalStore("user_jwt")})
     }
   }
-
 
   return(
     <LogInSignUp currentPage={currentPage}>
@@ -47,5 +47,7 @@ const LogIn = ({currentPage})=>{
     </LogInSignUp>
   )
 }
+
+const LogIn = connect((state)=>({currentPage: state.globalReducer.currentPage}))(TempLogIn)
 
 export default LogIn

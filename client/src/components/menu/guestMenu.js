@@ -1,52 +1,39 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import Menu from "./menu";
 import {Link} from "react-router-dom";
-import {getItemFromLocalStore, setItemToLocalStore, setValueToStore} from "../../index";
-import {Icons} from  "../Icons"
+import {Icons} from "../Icons"
+import {connect} from "react-redux";
 
-const GuestMenu = ({currentPage, menuState}) => {
-  useEffect(() => {
-    menuState !== getItemFromLocalStore("stateMenu") && setValueToStore({
-      type: "SET_MENU_STATE_REQUEST",
-      menuState: getItemFromLocalStore("stateMenu")
-    })
-  }, [menuState])
-
-
-  const handleStateMenu = (show) => {
-    setItemToLocalStore("stateMenu", show)
-    setValueToStore({type: "SET_MENU_STATE_REQUEST", menuState: show})
-  }
+const TempGuestMenu = ({currentPage, menuState}) => {
 
   return menuState === "show" ? (
-    <Menu
-      menuState={menuState}
-      handleStateMenu={handleStateMenu}>
+    <Menu>
       <div className='menu-link d-flex flex-column '>
         <div className='menu-item mx-auto'>
           <Link to="/" className={`nav-link ${currentPage === "" ? 'active-menu' : ""}`}><Icons.IconHome width={50}
-                                                                                                   height={50}/>Home</Link>
+                                                                                                         height={50}/>Home</Link>
         </div>
         <div className='menu-item mx-auto'>
-          <Link to="/authors" className={`nav-link ${currentPage === "authors" ? 'active-menu' : ""}`}><Icons.IconAuthors
+          <Link to="/authors"
+                className={`nav-link ${currentPage === "authors" ? 'active-menu' : ""}`}><Icons.IconAuthors
             width={50} height={50}/>Authors</Link>
         </div>
       </div>
 
       <div className='menu-additions d-flex flex-column'>
         <div className='menu-item mx-auto'>
-          <Link to="/login" className={`nav-link ${currentPage === "login" ? 'active-menu' : ""}`}><Icons.IconLogIn/> Log
+          <Link to="/login"
+                className={`nav-link ${currentPage === "login" ? 'active-menu' : ""}`}><Icons.IconLogIn/> Log
             in</Link>
         </div>
         <div className='menu-item mx-auto'>
-          <Link to="/signup" className={`nav-link ${currentPage === "signup" ? 'active-menu' : ""}`}><Icons.IconSignUp/> Sign
+          <Link to="/signup"
+                className={`nav-link ${currentPage === "signup" ? 'active-menu' : ""}`}><Icons.IconSignUp/> Sign
             up</Link>
         </div>
       </div>
     </Menu>) : (
-    <Menu
-      menuState={menuState}
-      handleStateMenu={handleStateMenu}>
+    <Menu>
       <div className='menu-items'>
         <div className='logo'>
           <img src="/short-logo.png" alt="short-logo"/>
@@ -74,5 +61,12 @@ const GuestMenu = ({currentPage, menuState}) => {
       </div>
     </Menu>)
 }
+
+
+const GuestMenu = connect((state) => ({
+  currentPage: state.globalReducer.currentPage,
+  menuState: state.globalReducer.menuState
+}))(TempGuestMenu)
+
 
 export default GuestMenu

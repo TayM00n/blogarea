@@ -1,12 +1,23 @@
-import React, {useState} from "react";
+import React, {useEffect} from "react";
+import {connect} from "react-redux";
+import {getItemFromLocalStore, setItemToLocalStore, setValueToStore} from "../../index";
 
-const Menu = ({children, menuState, handleStateMenu})=>{
-  const [width, setWidth] = useState(window.innerWidth)
-  const [height, setHeight] = useState(window.innerHeight)
+const TempMenu = ({children, menuState, windowSize})=>{
 
   window.onresize=()=>{
-    setWidth(window.innerWidth)
-    setHeight(window.innerHeight)
+    setValueToStore({type: "SET_WINDOW_SIZE_REQUEST", windowSize: {width: window.innerWidth, height: window.innerHeight}})
+  }
+
+  useEffect(() => {
+    menuState !== getItemFromLocalStore("stateMenu") && setValueToStore({
+      type: "SET_MENU_STATE_REQUEST",
+      menuState: getItemFromLocalStore("stateMenu")
+    })
+  }, [menuState])
+
+  const handleStateMenu = (show) => {
+    setItemToLocalStore("stateMenu", show)
+    setValueToStore({type: "SET_MENU_STATE_REQUEST", menuState: show})
   }
 
   const FullMenu = ({height, children})=>{
@@ -16,7 +27,7 @@ const Menu = ({children, menuState, handleStateMenu})=>{
           <div className='logo'>
             <img src='/logo-menu-min.png' alt="logo" className='w-100 h-100'/>
           </div>
-          <div className='menu d-flex flex-column justify-content-between h-50 '>
+          <div className='menu d-flex flex-column justify-content-between h-50'>
             {children}
           </div>
         </div>
@@ -42,7 +53,9 @@ const Menu = ({children, menuState, handleStateMenu})=>{
     )
   }
 
-  return menuState==="show" ? <FullMenu height={height}>{children}</FullMenu> : <ShortMenu width={width}>{children}</ShortMenu>
+  return menuState==="show" ? <FullMenu height={windowSize.height}>{children}</FullMenu> : <ShortMenu width={windowSize.width}>{children}</ShortMenu>
 }
+
+const Menu = connect((state)=>({windowSize: state.globalReducer.windowSize, menuState: state.globalReducer.menuState}))(TempMenu)
 
 export default Menu
