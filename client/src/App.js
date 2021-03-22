@@ -11,6 +11,7 @@ import AuthMenu from "./components/menu/authMenu";
 import GuestMenu from "./components/menu/guestMenu";
 import posts from "./tempData/posts.json"
 import users from "./tempData/users.json"
+import Profile from "./components/profile/profile";
 
 function App({global}) {
   const loc = useLocation()
@@ -60,7 +61,7 @@ function App({global}) {
       {global.isLogin ? (
         <Switch>
           <Route path="/settings" exec component={() => <h1>Settings</h1>}/>
-          <Route path="/profile" exec component={() => <h1>Profile</h1>}/>
+          <Route path="/profile" exec component={() => <Profile posts={posts} users={users}/>}/>
           <Route path="/createpost" exec component={() => <h1>Create post</h1>}/>
           <Route path="/" exec component={() => <AuthorsPage posts={posts} users={users}/>}/>
         </Switch>

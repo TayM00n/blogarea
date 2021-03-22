@@ -1,6 +1,6 @@
 [{
   "id": 1,
-  "author ": "Delora Darkott",
+  "author": "Delora Darkott",
   "title": "Shepard & Dark",
   "description": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.",
   "img": "Firestarter",
@@ -10,7 +10,7 @@
   "date": "2/1/2017"
 }, {
   "id": 2,
-  "author ": "Cati Pavlata",
+  "author": "Cati Pavlata",
   "title": "Stranger in Town, A",
   "description": "In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.",
   "img": "No Impact Man: The Documentary",
@@ -20,7 +20,7 @@
   "date": "10/21/2016"
 }, {
   "id": 3,
-  "author ": "Sean Kerwin",
+  "author": "Sean Kerwin",
   "title": "Mister Roberts",
   "description": "Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.",
   "img": "Thirty Seconds Over Tokyo",
@@ -30,7 +30,7 @@
   "date": "12/25/2017"
 }, {
   "id": 4,
-  "author ": "Arnaldo Slaten",
+  "author": "Arnaldo Slaten",
   "title": "Dominion Tank Police (Dominion)",
   "description": "Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.",
   "img": "Low Down Dirty Shame, A",
@@ -40,7 +40,7 @@
   "date": "11/25/2017"
 }, {
   "id": 5,
-  "author ": "Bibi Windrum",
+  "author": "Bibi Windrum",
   "title": "Upside Down: The Creation Records Story",
   "description": "Proin risus. Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.",
   "img": "Georgia Rule",
@@ -50,7 +50,7 @@
   "date": "8/30/2019"
 }, {
   "id": 6,
-  "author ": "Charley Brookzie",
+  "author": "Charley Brookzie",
   "title": "Exists",
   "description": "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim.",
   "img": "Broken English",
@@ -60,7 +60,7 @@
   "date": "2/4/2015"
 }, {
   "id": 7,
-  "author ": "Meir Whitemarsh",
+  "author": "Meir Whitemarsh",
   "title": "Kung Fu Hustle (Gong fu)",
   "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor.",
   "img": "Short Sharp Shock (Kurz und schmerzlos) ",
@@ -70,7 +70,7 @@
   "date": "8/25/2018"
 }, {
   "id": 8,
-  "author ": "Jorie Farrimond",
+  "author": "Jorie Farrimond",
   "title": "Mine Games",
   "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst.",
   "img": "God's Not Dead",
@@ -80,7 +80,7 @@
   "date": "4/18/2019"
 }, {
   "id": 9,
-  "author ": "Helenelizabeth Stailey",
+  "author": "Helenelizabeth Stailey",
   "title": "God on Trial",
   "description": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
   "img": "Hamlet",
@@ -90,7 +90,7 @@
   "date": "2/10/2019"
 }, {
   "id": 10,
-  "author ": "Nicolis Dudson",
+  "author": "Nicolis Dudson",
   "title": "Jönssonligan dyker upp igen",
   "description": "Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.",
   "img": "Ashes of Time (Dung che sai duk)",
@@ -100,7 +100,7 @@
   "date": "6/18/2016"
 }, {
   "id": 11,
-  "author ": "Rafa Golsby",
+  "author": "Rafa Golsby",
   "title": "Cigarettes and Coffee (Un cartus de kent si un pachet de cafea)",
   "description": "Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.",
   "img": "Randy and the Mob",
@@ -110,7 +110,7 @@
   "date": "7/8/2016"
 }, {
   "id": 12,
-  "author ": "Gustie Seabourne",
+  "author": "Gustie Seabourne",
   "title": "Freaky Deaky",
   "description": "Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis.",
   "img": "Another You",
@@ -120,7 +120,7 @@
   "date": "12/4/2015"
 }, {
   "id": 13,
-  "author ": "Tarrance Gatsby",
+  "author": "Tarrance Gatsby",
   "title": "Class of Nuke 'Em High",
   "description": "Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque.",
   "img": "Countess from Hong Kong, A",
@@ -130,7 +130,7 @@
   "date": "1/19/2015"
 }, {
   "id": 14,
-  "author ": "Xaviera Comiskey",
+  "author": "Xaviera Comiskey",
   "title": "Rise and Fall of Legs Diamond, The",
   "description": "Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.",
   "img": "Silent One, The",
@@ -140,7 +140,7 @@
   "date": "2/28/2019"
 }, {
   "id": 15,
-  "author ": "Sabine Woloschin",
+  "author": "Sabine Woloschin",
   "title": "Cruel Gun Story (Kenjû zankoku monogatari)",
   "description": "Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio.",
   "img": "Student of the Year",
@@ -150,7 +150,7 @@
   "date": "4/26/2017"
 }, {
   "id": 16,
-  "author ": "Trevar Woodgate",
+  "author": "Trevar Woodgate",
   "title": "Commare secca, La (Grim Reaper, The)",
   "description": "In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.",
   "img": "Prodigal Son, The (Tuhlaajapoika)",
@@ -160,7 +160,7 @@
   "date": "11/1/2016"
 }, {
   "id": 17,
-  "author ": "Trumaine Cardenoso",
+  "author": "Trumaine Cardenoso",
   "title": "U2: Rattle and Hum",
   "description": "Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus.",
   "img": "Three Stooges, The",
@@ -170,7 +170,7 @@
   "date": "5/5/2016"
 }, {
   "id": 18,
-  "author ": "Vikky McFeate",
+  "author": "Vikky McFeate",
   "title": "At Sword's Point",
   "description": "Vivamus tortor.",
   "img": "Ghost Breakers, The",
@@ -180,7 +180,7 @@
   "date": "12/30/2016"
 }, {
   "id": 19,
-  "author ": "Hastings Cowle",
+  "author": "Hastings Cowle",
   "title": "Raise the Red Lantern (Da hong deng long gao gao gua)",
   "description": "Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.",
   "img": "What's Up, Doc?",
@@ -190,7 +190,7 @@
   "date": "6/14/2017"
 }, {
   "id": 20,
-  "author ": "Vivi Fitzpayn",
+  "author": "Vivi Fitzpayn",
   "title": "Julie & Julia",
   "description": "Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",
   "img": "The Expelled",
@@ -200,7 +200,7 @@
   "date": "1/14/2016"
 }, {
   "id": 21,
-  "author ": "Shaun De Bischop",
+  "author": "Shaun De Bischop",
   "title": "Dark Circles ",
   "description": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.",
   "img": "David Copperfield",
@@ -210,7 +210,7 @@
   "date": "7/3/2019"
 }, {
   "id": 22,
-  "author ": "Lexy Hatcher",
+  "author": "Lexy Hatcher",
   "title": "Captain Blood",
   "description": "Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.",
   "img": "Santa Who?",
@@ -220,7 +220,7 @@
   "date": "4/2/2017"
 }, {
   "id": 23,
-  "author ": "Hilton Gethin",
+  "author": "Hilton Gethin",
   "title": "For Love of the Game",
   "description": "Praesent id massa id nisl venenatis lacinia.",
   "img": "Paleface, The",
@@ -230,7 +230,7 @@
   "date": "4/26/2017"
 }, {
   "id": 24,
-  "author ": "Gill Philipsohn",
+  "author": "Gill Philipsohn",
   "title": "Hairdresser's Husband, The (Le mari de la coiffeuse)",
   "description": "Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh.",
   "img": "Eegah",
@@ -240,7 +240,7 @@
   "date": "7/20/2019"
 }, {
   "id": 25,
-  "author ": "Devin Kingsnod",
+  "author": "Devin Kingsnod",
   "title": "Pretty Good for a Human (People Not as Bad as They Seem) (Aika hyvä ihmiseksi)",
   "description": "Phasellus sit amet erat. Nulla tempus.",
   "img": "Hip Hop Witch, Da",
@@ -250,7 +250,7 @@
   "date": "1/2/2016"
 }, {
   "id": 26,
-  "author ": "Tilda Geharke",
+  "author": "Tilda Geharke",
   "title": "Ruhr",
   "description": "Proin risus. Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.",
   "img": "Angel Levine, The",
@@ -260,7 +260,7 @@
   "date": "6/5/2017"
 }, {
   "id": 27,
-  "author ": "Heidie Librey",
+  "author": "Heidie Librey",
   "title": "Eye of Vichy, The (Oeil de Vichy, L')",
   "description": "Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo.",
   "img": "Thousand Cuts, A",
@@ -270,7 +270,7 @@
   "date": "3/14/2019"
 }, {
   "id": 28,
-  "author ": "Vere Bruty",
+  "author": "Vere Bruty",
   "title": "Dreamboat",
   "description": "Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus.",
   "img": "Cartouche",
@@ -280,7 +280,7 @@
   "date": "2/2/2017"
 }, {
   "id": 29,
-  "author ": "Bourke Ambrosch",
+  "author": "Bourke Ambrosch",
   "title": "Man of Marble (Czlowiek z Marmuru)",
   "description": "Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante.",
   "img": "Serial Killer Culture",
@@ -290,7 +290,7 @@
   "date": "5/2/2017"
 }, {
   "id": 30,
-  "author ": "Pete Pinchin",
+  "author": "Pete Pinchin",
   "title": "Strangers When We Meet",
   "description": "Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat.",
   "img": "Looney Tunes: Back in Action",
@@ -300,7 +300,7 @@
   "date": "10/19/2017"
 }, {
   "id": 31,
-  "author ": "Urbanus Plewman",
+  "author": "Urbanus Plewman",
   "title": "Lovers and Lollipops",
   "description": "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.",
   "img": "Career Girls",
@@ -310,7 +310,7 @@
   "date": "7/20/2020"
 }, {
   "id": 32,
-  "author ": "Shirl Kort",
+  "author": "Shirl Kort",
   "title": "[REC]²",
   "description": "Nulla justo. Aliquam quis turpis eget elit sodales scelerisque.",
   "img": "Galaxy Invader, The",
@@ -320,7 +320,7 @@
   "date": "2/22/2015"
 }, {
   "id": 33,
-  "author ": "Bidget Chugg",
+  "author": "Bidget Chugg",
   "title": "Expecting a Miracle",
   "description": "Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis.",
   "img": "Hatchet III",
@@ -330,7 +330,7 @@
   "date": "8/27/2018"
 }, {
   "id": 34,
-  "author ": "Isabelle Balls",
+  "author": "Isabelle Balls",
   "title": "Reckoning, The",
   "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.",
   "img": "Death Becomes Her",
@@ -340,7 +340,7 @@
   "date": "11/24/2017"
 }, {
   "id": 35,
-  "author ": "Dyana Kingscote",
+  "author": "Dyana Kingscote",
   "title": "Silent Hill: Revelation 3D",
   "description": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante.",
   "img": "Anything for Her (Pour elle)",
@@ -350,7 +350,7 @@
   "date": "9/23/2020"
 }, {
   "id": 36,
-  "author ": "Veronica Swoffer",
+  "author": "Veronica Swoffer",
   "title": "Warriors (Guerreros)",
   "description": "Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo.",
   "img": "Castle of Blood",
@@ -360,7 +360,7 @@
   "date": "9/10/2018"
 }, {
   "id": 37,
-  "author ": "Nat Mussettini",
+  "author": "Nat Mussettini",
   "title": "Date and Switch",
   "description": "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
   "img": "Spring Breakdown",
@@ -370,7 +370,7 @@
   "date": "7/9/2015"
 }, {
   "id": 38,
-  "author ": "Wolfie Caddies",
+  "author": "Wolfie Caddies",
   "title": "Rize",
   "description": "Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.",
   "img": "Counter Investigation (Contre-enquête)",
@@ -380,7 +380,7 @@
   "date": "8/7/2015"
 }, {
   "id": 39,
-  "author ": "Fletcher Stuchburie",
+  "author": "Fletcher Stuchburie",
   "title": "Last Detail, The",
   "description": "Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.",
   "img": "Wheelmen",
@@ -390,7 +390,7 @@
   "date": "11/28/2019"
 }, {
   "id": 40,
-  "author ": "Terrel Heliet",
+  "author": "Terrel Heliet",
   "title": "Bodies, Rest & Motion",
   "description": "Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.",
   "img": "Just 4 Kicks",
@@ -400,7 +400,7 @@
   "date": "1/1/2019"
 }, {
   "id": 41,
-  "author ": "Laurette Creed",
+  "author": "Laurette Creed",
   "title": "Breaking and Entering",
   "description": "Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.",
   "img": "Toys",
@@ -410,7 +410,7 @@
   "date": "2/12/2015"
 }, {
   "id": 42,
-  "author ": "Homer Sherratt",
+  "author": "Homer Sherratt",
   "title": "Crossroads",
   "description": "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat.",
   "img": "Master of the Flying Guillotine (Du bi quan wang da po xue di zi)",
@@ -420,7 +420,7 @@
   "date": "7/20/2018"
 }, {
   "id": 43,
-  "author ": "Max Kemsley",
+  "author": "Max Kemsley",
   "title": "Slipstream",
   "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.",
   "img": "Whitecoats",
@@ -430,7 +430,7 @@
   "date": "10/2/2019"
 }, {
   "id": 44,
-  "author ": "Cortney Barrass",
+  "author": "Cortney Barrass",
   "title": "Foxfire",
   "description": "Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.",
   "img": "Dames du Bois de Boulogne, Les (Ladies of the Bois de Boulogne, The) (Ladies of the Park)",
@@ -440,7 +440,7 @@
   "date": "2/6/2016"
 }, {
   "id": 45,
-  "author ": "Gradey Dello",
+  "author": "Gradey Dello",
   "title": "Mighty Quinn, The",
   "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo.",
   "img": "Lorna",
@@ -450,7 +450,7 @@
   "date": "11/14/2016"
 }, {
   "id": 46,
-  "author ": "Loretta Rockhill",
+  "author": "Loretta Rockhill",
   "title": "Gentlemen Don't Eat Poets (Grotesque, The)",
   "description": "Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",
   "img": "Hunchback of Notre Dame, The",
@@ -460,7 +460,7 @@
   "date": "5/9/2018"
 }, {
   "id": 47,
-  "author ": "Eduino Elesander",
+  "author": "Eduino Elesander",
   "title": "There Was a Father (Chichi ariki)",
   "description": "Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",
   "img": "Englishman in New York, An",
@@ -470,7 +470,7 @@
   "date": "9/19/2019"
 }, {
   "id": 48,
-  "author ": "Jerry McLoughlin",
+  "author": "Jerry McLoughlin",
   "title": "Hostel",
   "description": "Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst.",
   "img": "House of Yes, The",
@@ -480,7 +480,7 @@
   "date": "12/19/2016"
 }, {
   "id": 49,
-  "author ": "Josey Sworne",
+  "author": "Josey Sworne",
   "title": "Great Caruso, The",
   "description": "Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",
   "img": "American Buffalo",
@@ -490,7 +490,7 @@
   "date": "11/13/2016"
 }, {
   "id": 50,
-  "author ": "Madelene Pitcock",
+  "author": "Madelene Pitcock",
   "title": "Silent Souls (Ovsyanki)",
   "description": "Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy.",
   "img": "Iron Rose, The (Rose de fer, La)",
@@ -500,7 +500,7 @@
   "date": "9/23/2019"
 }, {
   "id": 51,
-  "author ": "Sephira Ricket",
+  "author": "Sephira Ricket",
   "title": "Boogie (Boogie, el aceitoso)",
   "description": "Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.",
   "img": "Godzilla 2000 (Gojira ni-sen mireniamu)",
@@ -510,7 +510,7 @@
   "date": "1/7/2019"
 }, {
   "id": 52,
-  "author ": "Torin Ellis",
+  "author": "Torin Ellis",
   "title": "Where the Trail Ends",
   "description": "In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl.",
   "img": "Angela",
@@ -520,7 +520,7 @@
   "date": "5/25/2015"
 }, {
   "id": 53,
-  "author ": "Ellen Allston",
+  "author": "Ellen Allston",
   "title": "O Brother, Where Art Thou?",
   "description": "Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.",
   "img": "Hells Angels on Wheels",
@@ -530,7 +530,7 @@
   "date": "7/18/2016"
 }, {
   "id": 54,
-  "author ": "Berty Bifield",
+  "author": "Berty Bifield",
   "title": "Jane Eyre",
   "description": "Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.",
   "img": "Dear God",
@@ -540,7 +540,7 @@
   "date": "4/1/2020"
 }, {
   "id": 55,
-  "author ": "Eolanda Scotti",
+  "author": "Eolanda Scotti",
   "title": "Without Love",
   "description": "Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.",
   "img": "City of God (Cidade de Deus)",
@@ -550,7 +550,7 @@
   "date": "2/6/2021"
 }, {
   "id": 56,
-  "author ": "Louie Trustram",
+  "author": "Louie Trustram",
   "title": "Red Eye",
   "description": "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum.",
   "img": "Café Metropole",
@@ -560,7 +560,7 @@
   "date": "2/28/2018"
 }, {
   "id": 57,
-  "author ": "Kellyann Bartholomieu",
+  "author": "Kellyann Bartholomieu",
   "title": "Lore",
   "description": "Suspendisse potenti. In eleifend quam a odio.",
   "img": "Voyage to the Beginning of the World (Viagem ao Princípio do Mundo)",
@@ -570,7 +570,7 @@
   "date": "3/20/2020"
 }, {
   "id": 58,
-  "author ": "Annamarie Nisius",
+  "author": "Annamarie Nisius",
   "title": "Lipstick",
   "description": "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
   "img": "One Husband Too Many",
@@ -580,7 +580,7 @@
   "date": "9/23/2015"
 }, {
   "id": 59,
-  "author ": "Virginia Trill",
+  "author": "Virginia Trill",
   "title": "Three Wise Fools",
   "description": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.",
   "img": "Hamoun",
@@ -590,7 +590,7 @@
   "date": "1/19/2019"
 }, {
   "id": 60,
-  "author ": "Quentin Golsby",
+  "author": "Quentin Golsby",
   "title": "Suez",
   "description": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
   "img": "Wing and a Prayer",
@@ -600,7 +600,7 @@
   "date": "11/10/2018"
 }, {
   "id": 61,
-  "author ": "Tully Antliff",
+  "author": "Tully Antliff",
   "title": "Dean Spanley",
   "description": "Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
   "img": "Absentia",
@@ -610,7 +610,7 @@
   "date": "12/28/2015"
 }, {
   "id": 62,
-  "author ": "Kennith MacManus",
+  "author": "Kennith MacManus",
   "title": "Carry On, Constable",
   "description": "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
   "img": "Thesis on a Homicide",
@@ -620,7 +620,7 @@
   "date": "10/6/2020"
 }, {
   "id": 63,
-  "author ": "Ofelia Garrie",
+  "author": "Ofelia Garrie",
   "title": "Not Without My Daughter",
   "description": "Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque.",
   "img": "I'll Cry Tomorrow",
@@ -630,7 +630,7 @@
   "date": "12/25/2019"
 }, {
   "id": 64,
-  "author ": "Harp Fanshawe",
+  "author": "Harp Fanshawe",
   "title": "Two Weeks in Another Town",
   "description": "Nunc purus. Phasellus in felis. Donec semper sapien a libero. Nam dui.",
   "img": "Lady Death",
@@ -640,7 +640,7 @@
   "date": "6/22/2016"
 }, {
   "id": 65,
-  "author ": "Phylys Haimes",
+  "author": "Phylys Haimes",
   "title": "Letters to Father Jacob (Postia pappi Jaakobille)",
   "description": "Ut tellus. Nulla ut erat id mauris vulputate elementum.",
   "img": "Crank",
@@ -650,7 +650,7 @@
   "date": "7/11/2017"
 }, {
   "id": 66,
-  "author ": "Loise Fowls",
+  "author": "Loise Fowls",
   "title": "Cutie and the Boxer",
   "description": "Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.",
   "img": "Karthik Calling Karthik",
@@ -660,7 +660,7 @@
   "date": "2/24/2019"
 }, {
   "id": 67,
-  "author ": "Shannah Ferries",
+  "author": "Shannah Ferries",
   "title": "Tür, Die (Door, The)",
   "description": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.",
   "img": "Organization, The",
@@ -670,7 +670,7 @@
   "date": "8/26/2018"
 }, {
   "id": 68,
-  "author ": "Towney Petrov",
+  "author": "Towney Petrov",
   "title": "Firestorm",
   "description": "Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh.",
   "img": "Conspiracy",
@@ -680,7 +680,7 @@
   "date": "5/24/2017"
 }, {
   "id": 69,
-  "author ": "Tarrance Cloney",
+  "author": "Tarrance Cloney",
   "title": "Color Purple, The",
   "description": "Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.",
   "img": "Flash Gordon Conquers the Universe",
@@ -690,7 +690,7 @@
   "date": "1/19/2016"
 }, {
   "id": 70,
-  "author ": "Coleman Thomsen",
+  "author": "Coleman Thomsen",
   "title": "Book of Eli, The",
   "description": "Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.",
   "img": "Heatstroke",
@@ -700,7 +700,7 @@
   "date": "2/18/2017"
 }, {
   "id": 71,
-  "author ": "Thaxter Rauprich",
+  "author": "Thaxter Rauprich",
   "title": "Erkan & Stefan 2",
   "description": "Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.",
   "img": "Hellhounds on My Trail",
@@ -710,7 +710,7 @@
   "date": "7/23/2017"
 }, {
   "id": 72,
-  "author ": "Morlee Tampin",
+  "author": "Morlee Tampin",
   "title": "En på miljonen",
   "description": "Proin risus. Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend.",
   "img": "Carnival of Souls",
@@ -720,7 +720,7 @@
   "date": "11/9/2018"
 }, {
   "id": 73,
-  "author ": "Charlot Revie",
+  "author": "Charlot Revie",
   "title": "Woods, The",
   "description": "Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius.",
   "img": "Life After Beth",
@@ -730,7 +730,7 @@
   "date": "12/30/2019"
 }, {
   "id": 74,
-  "author ": "Moreen Biasioni",
+  "author": "Moreen Biasioni",
   "title": "Bloomington",
   "description": "Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.",
   "img": "Beefcake",
@@ -740,7 +740,7 @@
   "date": "2/27/2021"
 }, {
   "id": 75,
-  "author ": "Cammie St. Aubyn",
+  "author": "Cammie St. Aubyn",
   "title": "Cake Eaters, The",
   "description": "Nunc purus. Phasellus in felis. Donec semper sapien a libero.",
   "img": "Hotel",
@@ -750,7 +750,7 @@
   "date": "2/24/2018"
 }, {
   "id": 76,
-  "author ": "Lyle Byrth",
+  "author": "Lyle Byrth",
   "title": "Sum of Us, The",
   "description": "Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor.",
   "img": "Angel's Leap",
@@ -760,7 +760,7 @@
   "date": "9/12/2015"
 }, {
   "id": 77,
-  "author ": "Kennan ffrench Beytagh",
+  "author": "Kennan ffrench Beytagh",
   "title": "Crossworlds",
   "description": "Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis. Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla.",
   "img": "Apache",
@@ -770,7 +770,7 @@
   "date": "9/14/2015"
 }, {
   "id": 78,
-  "author ": "Syman Elflain",
+  "author": "Syman Elflain",
   "title": "Hound of the Baskervilles, The",
   "description": "Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat.",
   "img": "Elling",
@@ -780,7 +780,7 @@
   "date": "8/22/2017"
 }, {
   "id": 79,
-  "author ": "Gabriel Mearns",
+  "author": "Gabriel Mearns",
   "title": "Kiss Me Deadly",
   "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.",
   "img": "Scary or Die",
@@ -790,7 +790,7 @@
   "date": "3/15/2018"
 }, {
   "id": 80,
-  "author ": "Ryley Wisham",
+  "author": "Ryley Wisham",
   "title": "American President, The",
   "description": "Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo.",
   "img": "Dragonball Evolution",
@@ -800,7 +800,7 @@
   "date": "5/21/2020"
 }, {
   "id": 81,
-  "author ": "Claiborne Woolstenholmes",
+  "author": "Claiborne Woolstenholmes",
   "title": "Dangerous Method, A",
   "description": "Fusce consequat. Nulla nisl. Nunc nisl.",
   "img": "It's the Great Pumpkin, Charlie Brown",
@@ -810,7 +810,7 @@
   "date": "12/6/2017"
 }, {
   "id": 82,
-  "author ": "Brita McCanny",
+  "author": "Brita McCanny",
   "title": "Alpha Dog",
   "description": "Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis.",
   "img": "Classic, The (Klassikko)",
@@ -820,7 +820,7 @@
   "date": "2/8/2018"
 }, {
   "id": 83,
-  "author ": "Sheila-kathryn Hannam",
+  "author": "Sheila-kathryn Hannam",
   "title": "Opening Night",
   "description": "Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla.",
   "img": "Top Banana",
@@ -830,7 +830,7 @@
   "date": "12/17/2015"
 }, {
   "id": 84,
-  "author ": "Stace Baswall",
+  "author": "Stace Baswall",
   "title": "No Regrets for Our Youth (Waga seishun ni kuinashi)",
   "description": "In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.",
   "img": "Charly",
@@ -840,7 +840,7 @@
   "date": "5/10/2016"
 }, {
   "id": 85,
-  "author ": "Odelia Laherty",
+  "author": "Odelia Laherty",
   "title": "Exodus",
   "description": "Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis.",
   "img": "Nowhere Boy",
@@ -850,7 +850,7 @@
   "date": "5/21/2016"
 }, {
   "id": 86,
-  "author ": "Rayner Harrowing",
+  "author": "Rayner Harrowing",
   "title": "Time Without Pity",
   "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus.",
   "img": "Pekko ja unissakävelijä",
@@ -860,7 +860,7 @@
   "date": "10/3/2019"
 }, {
   "id": 87,
-  "author ": "Baillie Geindre",
+  "author": "Baillie Geindre",
   "title": "Be Kind Rewind",
   "description": "Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim.",
   "img": "American Tail, An",
@@ -870,7 +870,7 @@
   "date": "10/17/2020"
 }, {
   "id": 88,
-  "author ": "Tully Mewes",
+  "author": "Tully Mewes",
   "title": "Group Sex",
   "description": "Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti.",
   "img": "Die Hard 2",
@@ -880,7 +880,7 @@
   "date": "6/11/2018"
 }, {
   "id": 89,
-  "author ": "Rosetta Abrahmson",
+  "author": "Rosetta Abrahmson",
   "title": "Peg o' My Heart",
   "description": "In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor.",
   "img": "And Now a Word from Our Sponsor",
@@ -890,7 +890,7 @@
   "date": "6/24/2020"
 }, {
   "id": 90,
-  "author ": "Dennie Sabbin",
+  "author": "Dennie Sabbin",
   "title": "Aerial Gunner",
   "description": "Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.",
   "img": "Lemmy",
@@ -900,7 +900,7 @@
   "date": "5/3/2019"
 }, {
   "id": 91,
-  "author ": "Jori Brettoner",
+  "author": "Jori Brettoner",
   "title": "Games People Play: New York",
   "description": "Nunc purus. Phasellus in felis. Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla.",
   "img": "Within Our Gates",
@@ -910,7 +910,7 @@
   "date": "6/30/2018"
 }, {
   "id": 92,
-  "author ": "Gale Harbottle",
+  "author": "Gale Harbottle",
   "title": "Amadeus",
   "description": "Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.",
   "img": "Europa (Zentropa)",
@@ -920,7 +920,7 @@
   "date": "12/31/2016"
 }, {
   "id": 93,
-  "author ": "Nathan Arsey",
+  "author": "Nathan Arsey",
   "title": "First Man Into Space",
   "description": "In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.",
   "img": "Elvira Madigan",
@@ -930,7 +930,7 @@
   "date": "7/5/2019"
 }, {
   "id": 94,
-  "author ": "Tildi Prisk",
+  "author": "Tildi Prisk",
   "title": "Detention",
   "description": "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.",
   "img": "After the Wedding (Efter brylluppet)",
@@ -940,7 +940,7 @@
   "date": "12/29/2016"
 }, {
   "id": 95,
-  "author ": "Robb Congdon",
+  "author": "Pamelina Simonich",
   "title": "Lake Placid",
   "description": "Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.",
   "img": "Outside Satan (Hors Satan)",
@@ -950,7 +950,7 @@
   "date": "7/20/2017"
 }, {
   "id": 96,
-  "author ": "Tomasine Bamb",
+  "author": "Pamelina Simonich",
   "title": "Summer Palace (Yihe yuan)",
   "description": "Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis. Donec semper sapien a libero. Nam dui.",
   "img": "About Schmidt",
@@ -960,7 +960,7 @@
   "date": "10/9/2015"
 }, {
   "id": 97,
-  "author ": "Colman Fawke",
+  "author": "Pamelina Simonich",
   "title": "Border Radio",
   "description": "Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti.",
   "img": "Kolmistaan",
@@ -970,7 +970,7 @@
   "date": "4/3/2020"
 }, {
   "id": 98,
-  "author ": "Nedda Giercke",
+  "author": "Pamelina Simonich",
   "title": "Five Days One Summer",
   "description": "Duis bibendum.",
   "img": "Manslaughter",
@@ -980,7 +980,7 @@
   "date": "12/20/2017"
 }, {
   "id": 99,
-  "author ": "Farley Forrestor",
+  "author": "Pamelina Simonich",
   "title": "Intersection",
   "description": "In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst.",
   "img": "Blot, The",
@@ -990,7 +990,7 @@
   "date": "8/25/2016"
 }, {
   "id": 100,
-  "author ": "Nils Jacketts",
+  "author": "Pamelina Simonich",
   "title": "Above the Rim",
   "description": "Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.",
   "img": "The Golden Voyage of Sinbad",

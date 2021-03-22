@@ -125,7 +125,7 @@ const TempAuthorsPage = ({posts, users, authors}) => {
         <div className="post d-flex my-2" key={post.id}>
           <div className='row post-body w-100 mx-auto'>
             <div className='col-4 img mx-auto'>
-              <img src={"https://placem.at/things?w=250&random="+post.img} alt={post.title}/>
+              <img src={"https://placem.at/things?w=250&h=250&random="+post.img} alt={post.title}/>
             </div>
             <div className='col-lg d-flex flex-column justify-content-between'>
               <div>
