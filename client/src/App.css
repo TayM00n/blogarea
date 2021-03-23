@@ -120,7 +120,7 @@ body {
 
 .post .img {
     min-width: 200px !important;
-    min-height: 150px !important;
+    max-height: 200px !important;
 }
 
 .post .more > svg {
@@ -365,10 +365,6 @@ body {
     box-shadow: 0px 2px 0px 1px #ada49b !important;
 }
 
-.fullPage-profile > div{
-    height: 100vh;
-}
-
 .user-info-avatar, .user-info-avatar > img{
     width: 250px;
     height: 250px;
@@ -376,7 +372,6 @@ body {
 
 @media only screen and (max-width: 1500px) {
     .posts {
-        flex: 100% !important;
         width: 100% !important;
         max-width: 100% !important;
     }

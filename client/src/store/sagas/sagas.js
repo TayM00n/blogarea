@@ -1,7 +1,8 @@
 import {put, takeEvery} from "redux-saga/effects"
 import {
+  setCountPostsView,
   setCountView,
-  setCurrentPage, setCurrentPagePostsUsers,
+  setCurrentPage, setCurrentPagePostsUsers, setCurrentPostsPage,
   setIsLogin,
   setJWT,
   setMenuState,
@@ -53,6 +54,14 @@ function* grSetUsersView(action) {
   yield put(setUsersView(action.usersView))
 }
 
+function* grSetCurrentPostsPage(action) {
+  yield put(setCurrentPostsPage(action.currentPostsPage))
+}
+
+function* grSetCountPostsView(action) {
+  yield put(setCountPostsView(action.countPostsView))
+}
+
 function* mySaga() {
   yield takeEvery("SET_JWT_REQUEST", grSetJWT)
   yield takeEvery("SET_CURRENT_PAGE_REQUEST", grSetCurrentPage)
@@ -65,6 +74,8 @@ function* mySaga() {
   yield takeEvery("SET_POSTS_VIEW_REQUEST", grSetPostsView)
   yield takeEvery("SET_USERS_VIEW_REQUEST", grSetUsersView)
   yield takeEvery("SET_WINDOW_SIZE_REQUEST", grSetWindowSize)
+  yield takeEvery("SET_CURRENT_POSTS_PAGE_REQUEST", grSetCurrentPostsPage)
+  yield takeEvery("SET_COUNT_POSTS_VIEW_REQUEST", grSetCountPostsView)
 }
 
 export default mySaga

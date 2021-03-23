@@ -18,7 +18,7 @@ const TempLogIn = ({currentPage})=>{
   const handleSubmit = ()=>{
     if((email === "test@test.com" && password==="123") || (email === "1" && password==="1") || true){
       history.push("/")
-      setItemToLocalStore("user_jwt", "sdjbfajsbfhasbfoiebfhiebiwhabawebf")
+      setItemToLocalStore("user_jwt", "1")
       setValueToStore({type:"SET_JWT_REQUEST", userId: getItemFromLocalStore("user_jwt")})
     }
   }

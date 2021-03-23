@@ -61,14 +61,26 @@ function App({global}) {
       {global.isLogin ? (
         <Switch>
           <Route path="/settings" exec component={() => <h1>Settings</h1>}/>
-          <Route path="/profile" exec component={() => <Profile posts={posts} users={users}/>}/>
+          <Route path="/profile/:id" exec render={(e) => {
+            return <Profile
+              posts={posts.filter((item) => item.author === (users[e.match.params.id-1].firstName + " " + users[e.match.params.id-1].lastName))}
+              user={users[e.match.params.id - 1]}/>
+          }}/>
+          <Route path="/profile" exec render={() => <Profile
+            posts={posts.filter((item) => item.author === (users[getItemFromLocalStore("user_jwt")-1].firstName + " " + users[getItemFromLocalStore("user_jwt")-1].lastName))}
+            user={users[getItemFromLocalStore("user_jwt") - 1]}/>}/>
           <Route path="/createpost" exec component={() => <h1>Create post</h1>}/>
           <Route path="/" exec component={() => <AuthorsPage posts={posts} users={users}/>}/>
         </Switch>
       ) : (
         <Switch>
           <Route path="/authors" exec component={() => <AuthorsPage posts={posts} users={users}/>}/>
-          <Route path="/login" exec component={() => <LogIn/>}/>
+          <Route path="/profile/:id" exec render={(e) => {
+            return <Profile
+              posts={posts.filter((item) => item.author === (users[e.match.params.id-1].firstName + " " + users[e.match.params.id-1].lastName))}
+              user={users[e.match.params.id - 1]}/>
+          }}/>
+          <Route path="/login" exec component={(e) => {return <LogIn/>}}/>
           <Route path="/signup" exec component={() => <SignUp/>}/>
           <Route path="/" exec component={GuestHomePage}/>
         </Switch>

@@ -54,3 +54,13 @@ export const setUsersView = (usersView) => ({
   type: TYPES.AUTHORSTYPES.SET_USERS_VIEW,
   usersView
 })
+
+export const setCurrentPostsPage = (currentPostsPage)=>({
+  type: TYPES.PROFILE.SET_CURRENT_POSTS_PAGE,
+  currentPostsPage
+})
+
+export const setCountPostsView = (countPostsView)=>({
+  type: TYPES.PROFILE.SET_COUNT_POSTS_VIEW,
+  countPostsView
+})
