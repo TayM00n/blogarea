@@ -53,7 +53,7 @@ function App({global}) {
   }, [global.userId, global.currentPage, global.isLogin, loc])// eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="App container">
+    <div className="App container-fluid">
       <div className='header'>
         {global.isLogin ?
           <AuthMenu/> :

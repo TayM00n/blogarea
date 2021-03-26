@@ -4,8 +4,14 @@ body {
     background-color: #ddd1c6 !important;
 }
 
+.posts {
+    /*max-flex: 100% !important;*/
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
 .App {
-    max-width: 80% !important;
+    max-width: 90% !important;
 }
 
 .customCarousel {
@@ -118,9 +124,8 @@ body {
     background-color: #c4c4c4 !important;
 }*/
 
-.post .img {
-    min-width: 200px !important;
-    max-height: 200px !important;
+.post-description{
+    font-size: .8rem;
 }
 
 .post .more > svg {
@@ -133,6 +138,11 @@ body {
 
 .post .post-title > h1, .container-users > .user {
     cursor: pointer;
+}
+
+.post .img {
+    min-width: 200px !important;
+    max-height: 200px !important;
 }
 
 .post .img > img {
@@ -371,13 +381,19 @@ body {
 }
 
 @media only screen and (max-width: 1500px) {
-    .posts {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
+    /*.posts {
+        flex: 100% !important;
+        !*width: 100% !important;
+        max-width: 100% !important;*!
+    }*/
 }
 
 @media only screen and (max-width: 768px) {
+    .posts {
+        flex: 100% !important;
+        /*width: 100% !important;
+        max-width: 100% !important;*/
+    }
     .post-footer>div{
         text-align: center;
         margin: 0px auto !important;

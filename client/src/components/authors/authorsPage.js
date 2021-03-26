@@ -28,48 +28,55 @@ const sortArray = (arr, filter = "rating") => {
   }
 }
 
-export const Posts = ({posts}) => {
-  return posts.map((post) => {
-    return (
-      <div className="post d-flex my-2" key={post.id}>
-        <div className='row post-body w-100 mx-auto'>
-          <div className='col-4 img mx-auto'>
-            <img src={"https://placem.at/things?w=250&h=250&random="+post.img} alt={post.title}/>
-          </div>
-          <div className='col-lg d-flex flex-column justify-content-between'>
-            <div>
-              <div className="post-title d-flex flex-row justify-content-between flex-wrap">
-                <Link to={"/post/"+post.id} className="text-dark text-decoration-none"><h1>{post.title}</h1></Link>
-              </div>
-              <div className="post-description">
-                <p>{post.description}</p>
-              </div>
+export const Post = ({post, isShorting})=>{
+  return(
+    <div className="post d-flex my-2">
+      <div className='row post-body w-100 mx-auto'>
+        <div className='col-4 img mx-auto'>
+          <img src={"https://placem.at/things?w=250&h=250&random="+post.img} alt={post.title}/>
+        </div>
+        <div className='col-lg d-flex flex-column justify-content-between'>
+          <div>
+            <div className="post-title d-flex flex-row justify-content-between flex-wrap">
+              <Link to={"/post/"+post.id} className="text-dark text-decoration-none"><h2>{post.title}</h2></Link>
             </div>
-            <div className="row post-footer w-100 mx-auto">
-              <div className="date col-md p-0 my-auto mx-1 order-2 order-md-1">
-                <pre className='text-muted m-0'> {post.date}</pre>
-              </div>
-              <div className='col-md p-0 my-auto mx-1 order-3 order-md-2'>
-                <div className="d-flex flex-row justify-content-around">
-                  <div className="rating mx-1">
-                    <Icons.IconRating
-                      color={post.rating > 0 ? "green" : post.rating === 0 ? "currentColor" : "red"}/>{post.rating}
-                  </div>
-                  <div className="saved mx-1">
-                    <Icons.IconSaved/>{" " + post.saved}
-                  </div>
-                  <div className="views mx-1">
-                    <Icons.IconEya/>{" " + post.views}
-                  </div>
+            <div className="post-description">
+              <p>{isShorting ? post.description.substr(0,256) + "..." : post.description}</p>
+
+            </div>
+          </div>
+          <div className="row post-footer w-100 mx-auto">
+            <div className="date col-md p-0 my-auto mx-1 order-2 order-md-1">
+              <pre className='text-muted m-0'> {post.date}</pre>
+            </div>
+            <div className='col-md p-0 my-auto mx-1 order-3 order-md-2'>
+              <div className="d-flex flex-row justify-content-around">
+                <div className="rating mx-1">
+                  <Icons.IconRating
+                    color={post.rating > 0 ? "green" : post.rating === 0 ? "currentColor" : "red"}/>{post.rating}
+                </div>
+                <div className="saved mx-1">
+                  <Icons.IconSaved/>{" " + post.saved}
+                </div>
+                <div className="views mx-1">
+                  <Icons.IconEya/>{" " + post.views}
                 </div>
               </div>
-              <div className="more col-md my-auto p-0 mx-1 d-flex justify-content-end order-1 order-md-3">
-                <Link className="btn more my-auto" to={"/post/"+post.id}>More<Icons.IconNextV2/></Link>
-              </div>
+            </div>
+            <div className="more col-md my-auto p-0 mx-1 d-flex justify-content-end order-1 order-md-3">
+              <Link className="btn more my-auto" to={"/post/"+post.id}>More<Icons.IconNextV2/></Link>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  )
+}
+
+export const Posts = ({posts}) => {
+  return posts.map((post) => {
+    return (
+      <Post post={post} isShorting={post.description.length > 256 && true} key={post.id}/>
     )
   })
 }
@@ -227,7 +234,7 @@ const TempAuthorsPage = ({posts, users, authors}) => {
     <div className='fullPage'>
       <div className="d-flex flex-row justify-content-center hv-100">
         <div className='row d-flex flex-row justify-content-between w-100'>
-          <Tab colSize="col-lg-8">
+          <Tab colSize="col-lg-9">
             <Posts posts={authors.postsView}/>
           </Tab>
           <Tab colSize="col">
