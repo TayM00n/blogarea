@@ -7,7 +7,7 @@ import {ElemPagination, Posts} from "../authors/authorsPage";
 let prevCountPostsView = 25;
 let prevPage = 1;
 
-const TempProfile = ({posts, user, profile}) => {
+const TempProfile = ({posts, user, profile, isLogin, userId}) => {
   const setDataView = () => {
     let loadData = profile.currentPostsPage * profile.countPostsView
     let temp = []
@@ -88,11 +88,11 @@ const TempProfile = ({posts, user, profile}) => {
               onChange={(e, page) => handleOnPageChange(page)}/>
           </div>
         </div>:
-          <div className="text-center my-5"><p>This user has no posts</p></div>}
+          <div className="text-center my-5"><p>{isLogin && user.id === +userId ? "You don't have any posts" : "This user has no posts"}</p></div>}
       </div>
     </div>)
 }
 
-const Profile = connect((state) => ({profile: state.profileReducer}))(TempProfile)
+const Profile = connect((state) => ({profile: state.profileReducer, isLogin: state.globalReducer.isLogin, userId: state.globalReducer.userId}))(TempProfile)
 
 export default Profile

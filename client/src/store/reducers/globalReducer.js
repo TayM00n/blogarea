@@ -3,7 +3,7 @@ import TYPES from "../TYPES";
 const initState = {
   currentPage: "",
   menuState: "show",
-  userId: "",
+  userId: 0,
   isLogin: false,
   typeOfStorage: "",
   windowSize: {width: window.innerWidth, height: window.innerHeight}

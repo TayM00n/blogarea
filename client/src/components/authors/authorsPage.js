@@ -39,7 +39,7 @@ export const Posts = ({posts}) => {
           <div className='col-lg d-flex flex-column justify-content-between'>
             <div>
               <div className="post-title d-flex flex-row justify-content-between flex-wrap">
-                <h1>{post.title}</h1>
+                <Link to={"/post/"+post.id} className="text-dark text-decoration-none"><h1>{post.title}</h1></Link>
               </div>
               <div className="post-description">
                 <p>{post.description}</p>
@@ -64,7 +64,7 @@ export const Posts = ({posts}) => {
                 </div>
               </div>
               <div className="more col-md my-auto p-0 mx-1 d-flex justify-content-end order-1 order-md-3">
-                <a className="btn more my-auto" href={post.full}>More<Icons.IconNextV2/></a>
+                <Link className="btn more my-auto" to={"/post/"+post.id}>More<Icons.IconNextV2/></Link>
               </div>
             </div>
           </div>
