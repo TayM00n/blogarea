@@ -18,9 +18,9 @@ const TempProfile = ({posts, user, profile, isLogin, userId}) => {
   }
 
   useEffect(() => {
-    console.log("UseEffect",user)
+    //console.log("UseEffect",user)
     setDataView()
-  }, [profile.countPostsView, profile.currentPostsPage])
+  }, [profile.countPostsView, profile.currentPostsPage])// eslint-disable-line react-hooks/exhaustive-deps
 
 
 

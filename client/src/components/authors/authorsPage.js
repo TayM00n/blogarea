@@ -188,7 +188,7 @@ const TempAuthorsPage = ({posts, users, authors}) => {
         <div className="user my-2 d-flex flex-row" key={user.id}>
           <img src={user.avatar} alt="avatar" className="avatar-thumb my-auto"/>
           <div className='user-body ml-1 w-100 my-auto text-center'>
-            <Link to={"/profile/"+user.id}><h6 className='lead'>{user.firstName + " " + user.lastName}</h6></Link>
+            <Link to={"/profile/"+user.id} className='lead text-decoration-none text-dark'><h6 >{user.firstName + " " + user.lastName}</h6></Link>
             <div className='filling d-flex flex-row justify-content-around'>
               <div className='reputation-like'><Icons.IconSmile/>{' ' + user.like}</div>
               <div className='reputation-dislike'><Icons.IconSad/>{' ' + user.dislike}</div>

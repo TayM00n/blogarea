@@ -94,7 +94,7 @@ body {
     background: #555555 !important;
 }
 
-.container-posts > .post, .container-users > .user {
+.container-posts > .post, .container-users > .user, .comment-body {
     background-color: #F4F4F4;
     border-radius: 15px;
 }
@@ -150,7 +150,7 @@ body {
     height: 100%;
 }
 
-.avatar-thumb {
+.avatar-thumb, .comment-author-avatar{
     max-width: 100px !important;
     max-height: 100px !important;
     min-width: 100px !important;
@@ -375,7 +375,7 @@ body {
     box-shadow: 0px 2px 0px 1px #ada49b !important;
 }
 
-.user-info-avatar, .user-info-avatar > img{
+.user-info-avatar, .user-info-avatar > img, .comment-author-avatar{
     width: 250px;
     height: 250px;
 }
