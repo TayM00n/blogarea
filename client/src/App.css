@@ -150,6 +150,18 @@ body {
     height: 100%;
 }
 
+.comment-dislike, .comment-like, .postRatingIcons-container{
+    cursor: pointer;
+}
+
+.comment-dislike:hover > svg, .postRatingIcons-container > .icon-postRatingDown:hover{
+    stroke: red;
+}
+
+.comment-like:hover > svg, .postRatingIcons-container > .icon-postRatingUp:hover{
+    stroke: green;
+}
+
 .avatar-thumb, .comment-author-avatar{
     max-width: 100px !important;
     max-height: 100px !important;

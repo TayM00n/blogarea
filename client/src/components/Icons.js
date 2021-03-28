@@ -215,7 +215,7 @@ export const Icons = {
     return (
       <svg role="img" xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 24 24"
            aria-labelledby="thumbDownIconTitle" stroke="#000" strokeWidth="1" strokeLinecap="round"
-           strokeLinejoin="round" fill="none" color="#000">
+           strokeLinejoin="round" fill="none">
         <path
           d="M16,15.2601518 C16,15.7375744 15.8292157,16.1992484 15.5185132,16.5617346 L10.7276069,22.1511253 C10.2999873,22.6500148 9.58770685,22.7938534 9,22.5 C8.42620429,22.2131021 8.15068597,21.5479421 8.35355339,20.9393398 L10,16 L5.39642543,16 C5.27644223,16 5.15670242,15.9892031 5.03865456,15.9677398 C3.95190186,15.7701484 3.23109421,14.7289818 3.42868561,13.6422291 L4.70141289,6.64222912 C4.87431859,5.69124773 5.70258042,5 6.66915271,5 L14,5 C15.1045695,5 16,5.8954305 16,7 L16,15.2601518 Z"/>
         <path d="M20,15 L20,6"/>
@@ -224,12 +224,33 @@ export const Icons = {
   },
   IconLike({width = 24, height = 24}) {
     return (
-      <svg role="img" xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 24 24"
-           aria-labelledby="thumbUpIconTitle" stroke="#000" strokeWidth="1" strokeLinecap="round"
-           strokeLinejoin="round" fill="none" color="#000">
+      <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 24 24"
+           aria-labelledby="thumbUpIconTitle" stroke="currentColor" strokeWidth="1" strokeLinecap="round"
+           strokeLinejoin="round" fill="none">
         <path
           d="M8,8.73984815 C8,8.26242561 8.17078432,7.80075162 8.4814868,7.43826541 L13.2723931,1.84887469 C13.7000127,1.34998522 14.4122932,1.20614658 15,1.5 C15.5737957,1.78689785 15.849314,2.45205792 15.6464466,3.06066017 L14,8 L18.6035746,8 C18.7235578,8 18.8432976,8.01079693 18.9613454,8.03226018 C20.0480981,8.22985158 20.7689058,9.27101818 20.5713144,10.3577709 L19.2985871,17.3577709 C19.1256814,18.3087523 18.2974196,19 17.3308473,19 L10,19 C8.8954305,19 8,18.1045695 8,17 L8,8.73984815 Z"/>
         <path d="M4,18 L4,9"/>
+      </svg>
+    )
+  },
+  IconAddComment({width = 24, height= 24}){
+    return(
+      <svg width={width} height={height} viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.20307 1.04312C1.00481 0.954998 0.77234 1.0048 0.627577 1.16641C0.482813 1.32802 0.458794 1.56455 0.568116 1.75196L3.92115 7.50002L0.568116 13.2481C0.458794 13.4355 0.482813 13.672 0.627577 13.8336C0.77234 13.9952 1.00481 14.045 1.20307 13.9569L14.7031 7.95692C14.8836 7.87667 15 7.69761 15 7.50002C15 7.30242 14.8836 7.12336 14.7031 7.04311L1.20307 1.04312ZM4.84552 7.10002L2.21234 2.586L13.2689 7.50002L2.21234 12.414L4.84552 7.90002H9C9.22091 7.90002 9.4 7.72094 9.4 7.50002C9.4 7.27911 9.22091 7.10002 9 7.10002H4.84552Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+      </svg>
+    )
+  },
+  IconPostRatingUp({width = 15, height = 15}){
+    return(
+      <svg width={width} height={height} viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon-postRatingUp">
+        <path d="M7.14645 2.14645C7.34171 1.95118 7.65829 1.95118 7.85355 2.14645L11.8536 6.14645C12.0488 6.34171 12.0488 6.65829 11.8536 6.85355C11.6583 7.04882 11.3417 7.04882 11.1464 6.85355L8 3.70711L8 12.5C8 12.7761 7.77614 13 7.5 13C7.22386 13 7 12.7761 7 12.5L7 3.70711L3.85355 6.85355C3.65829 7.04882 3.34171 7.04882 3.14645 6.85355C2.95118 6.65829 2.95118 6.34171 3.14645 6.14645L7.14645 2.14645Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
+      </svg>
+    )
+  },
+  IconPostRatingDown({width = 15, height = 15}){
+    return(
+      <svg width={width} height={height} viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon-postRatingDown">
+        <path d="M7.5 2C7.77614 2 8 2.22386 8 2.5L8 11.2929L11.1464 8.14645C11.3417 7.95118 11.6583 7.95118 11.8536 8.14645C12.0488 8.34171 12.0488 8.65829 11.8536 8.85355L7.85355 12.8536C7.75979 12.9473 7.63261 13 7.5 13C7.36739 13 7.24021 12.9473 7.14645 12.8536L3.14645 8.85355C2.95118 8.65829 2.95118 8.34171 3.14645 8.14645C3.34171 7.95118 3.65829 7.95118 3.85355 8.14645L7 11.2929L7 2.5C7 2.22386 7.22386 2 7.5 2Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"/>
       </svg>
     )
   }

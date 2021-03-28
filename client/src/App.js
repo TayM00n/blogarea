@@ -71,7 +71,7 @@ function App({global}) {
             posts={posts.filter((item) => item.author === users[getItemFromLocalStore("user_jwt")-1].id)}
             user={users[getItemFromLocalStore("user_jwt") - 1]}/>}/>
           <Route path="/createpost" exec component={() => <h1>Create post</h1>}/>
-          <Route path="/post/:id" exec render={(e) => <DetailsAboutPost post={posts[e.match.params.id - 1]} user={users[posts[e.match.params.id - 1].author - 1]}/>}/>
+          <Route path="/post/:id" exec render={(e) => <DetailsAboutPost post={posts[e.match.params.id - 1]} user={users[posts[e.match.params.id - 1].author - 1]} users={users}/>}/>
           <Route path="/" exec component={() => <AuthorsPage posts={posts} users={users}/>}/>
         </Switch>
       ) : (
