@@ -1,17 +1,24 @@
 import TYPES from "../TYPES";
 
 const initState = {
+  isRemember: 0,
   currentPage: "",
   menuState: "show",
-  userId: 0,
+  userId: "",
   isLogin: false,
   typeOfStorage: "",
   windowSize: {width: window.innerWidth, height: window.innerHeight}
 }
 
 const globalReducer = (state = initState, action) => {
-  //console.log("STATE: ",state, "ACTION: ", action)
+  console.log("STATE: ",state, "ACTION: ", action)
   switch (action.type){
+    case TYPES.SET_IS_REMEMBER:{
+      return {
+        ...state,
+        isRemember: action.isRemember
+      }
+    }
     case TYPES.SET_WINDOW_SIZE:{
       return {
         ...state,

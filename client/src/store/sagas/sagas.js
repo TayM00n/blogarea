@@ -1,9 +1,10 @@
 import {put, takeEvery} from "redux-saga/effects"
 import {
+  setCommentsView,
   setCountPostsView,
   setCountView,
-  setCurrentPage, setCurrentPagePostsUsers, setCurrentPostsPage,
-  setIsLogin,
+  setCurrentPage, setCurrentPageComments, setCurrentPagePostsUsers, setCurrentPostsPage,
+  setIsLogin, setIsRemember,
   setJWT,
   setMenuState,
   setModeView, setPostsView,
@@ -28,6 +29,10 @@ function* grSetMenuState(action) {
 
 function* grSetIsLogin(action) {
   yield put(setIsLogin(action.isLogin))
+}
+
+function* grSetIsRemember(action) {
+  yield put(setIsRemember(action.isRemember))
 }
 
 function* grSetTypeOfStorage(action) {
@@ -62,11 +67,20 @@ function* grSetCountPostsView(action) {
   yield put(setCountPostsView(action.countPostsView))
 }
 
+function* grSetCurrentPageComments(action){
+  yield put(setCurrentPageComments(action.currentPageComments))
+}
+
+function* grSetCommentsView(action){
+  yield put(setCommentsView(action.commentsView))
+}
+
 function* mySaga() {
   yield takeEvery("SET_JWT_REQUEST", grSetJWT)
   yield takeEvery("SET_CURRENT_PAGE_REQUEST", grSetCurrentPage)
   yield takeEvery("SET_MENU_STATE_REQUEST", grSetMenuState)
   yield takeEvery("SET_IS_LOGIN_REQUEST", grSetIsLogin)
+  yield takeEvery("SET_IS_REMEMBER_REQUEST", grSetIsRemember)
   yield takeEvery("SET_TYPE_OF_STORAGE_REQUEST", grSetTypeOfStorage)
   yield takeEvery("SET_MODE_VIEW_REQUEST", grSetModeView)
   yield takeEvery("SET_COUNT_VIEW_REQUEST", grSetCountView)
@@ -76,6 +90,8 @@ function* mySaga() {
   yield takeEvery("SET_WINDOW_SIZE_REQUEST", grSetWindowSize)
   yield takeEvery("SET_CURRENT_POSTS_PAGE_REQUEST", grSetCurrentPostsPage)
   yield takeEvery("SET_COUNT_POSTS_VIEW_REQUEST", grSetCountPostsView)
+  yield takeEvery("SET_CURRENT_PAGE_COMMENTS_REQUEST", grSetCurrentPageComments)
+  yield takeEvery("SET_COMMENTS_VIEW_REQUEST", grSetCommentsView)
 }
 
 export default mySaga

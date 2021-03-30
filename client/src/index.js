@@ -18,6 +18,14 @@ export const setItemToLocalStore = (key, value) => {
   localStorage.setItem(key, value)
 }
 
+export const setItemToSessionStore = (key, value) => {
+  sessionStorage.setItem(key, value)
+}
+
+export const getItemFromSessionStore = (key) => {
+  return sessionStorage.getItem(key)
+}
+
 const OwnApp = connect((state)=>({global: state.globalReducer}))(App)
 ReactDOM.render(
   <Provider store={store}>

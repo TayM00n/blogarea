@@ -1,0 +1,105 @@
+@media only screen and (max-width: 1500px) {
+
+}
+
+@media only screen and (max-width: 768px) {
+    .posts {
+        flex: 100% !important;
+    }
+    .post-footer>div{
+        text-align: center;
+        margin: 0px auto !important;
+        width: 100% !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .customCarousel {
+        max-width: 450px !important;
+        max-height: 300px !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .short-menu {
+        height: 4rem;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        overflow-scrolling: auto;
+    }
+
+    .menu-items > a > div, .menu-items > div {
+        border-width: 1px;
+        border-style: solid;
+        border-color: white;
+    }
+
+    .menu-items > a > div svg {
+        margin: .3rem .7rem;
+        width: 25px;
+    }
+
+    .menu-items {
+        display: flex;
+        flex-direction: row;
+        width: 100% !important;
+        height: 100% !important;
+        justify-content: center;
+    }
+
+    .menu-items .logo {
+        width: 18% !important;
+        height: 100% !important;
+    }
+
+    .menu-items .logo > img, .menu-items > a > div {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .show-menu {
+        top: -30%;
+        left: 45%;
+        transform: rotate(-90deg);
+    }
+
+    .form-login-signup {
+        padding: 20px !important;
+    }
+
+    .container-posts, .container-users {
+        height: 80vh;
+    }
+
+    .avatar-thumb {
+        max-width: 50px !important;
+        max-height: 50px !important;
+        min-width: 50px !important;
+        min-height: 50px !important;
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 100% !important;
+    }
+
+    .post h1, .user h6{
+        font-size: 1rem !important;
+    }
+
+    .post p, .user p {
+        font-size: .7rem !important;
+    }
+
+    .date > pre, .user pre {
+        text-align: center;
+    }
+
+    .more .btn{
+        width: 100% !important;
+    }
+
+    .tab.users{
+        padding-bottom: 3rem !important;
+    }
+}

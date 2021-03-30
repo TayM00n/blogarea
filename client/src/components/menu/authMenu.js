@@ -1,16 +1,34 @@
 import React from "react";
-import {getItemFromLocalStore, setItemToLocalStore, setValueToStore} from "../../index";
+import {
+  getItemFromLocalStore,
+  getItemFromSessionStore,
+  setItemToLocalStore,
+  setItemToSessionStore,
+  setValueToStore
+} from "../../index";
 import Menu from "./menu";
 import {Link} from "react-router-dom";
 import {Icons} from "../Icons";
 import {connect} from "react-redux";
 
-const TempAuthMenu = ({currentPage, menuState}) => {
+const TempAuthMenu = ({global}) => {
+
+  const {currentPage, menuState, isRemember} = global
 
   const handleSignOut = () => {
-    setItemToLocalStore("user_jwt", "")
-    setValueToStore({type: "SET_JWT_REQUEST", userId: getItemFromLocalStore("user_jwt")})
-    setValueToStore({type: "SET_IS_LOGIN_REQUEST", isLogin: false})
+    setItemToLocalStore("isRemember",0)
+    if(isRemember){
+      console.log("yes",isRemember)
+      setItemToLocalStore("user_jwt", "")
+      setValueToStore({type: "SET_JWT_REQUEST", userId: getItemFromLocalStore("user_jwt")})
+      setValueToStore({type: "SET_IS_LOGIN_REQUEST", isLogin: false})
+    }else{
+      console.log("no",isRemember)
+      setItemToSessionStore("user_jwt", "")
+      setValueToStore({type: "SET_JWT_REQUEST", userId: getItemFromSessionStore("user_jwt")})
+      setValueToStore({type: "SET_IS_LOGIN_REQUEST", isLogin: false})
+    }
+
   }
 
   return menuState === "show" ? (
@@ -76,6 +94,6 @@ const TempAuthMenu = ({currentPage, menuState}) => {
 
 }
 
-const AuthMenu = connect((state)=>({currentPage:state.globalReducer.currentPage, menuState: state.globalReducer.menuState}))(TempAuthMenu)
+const AuthMenu = connect((state)=>({global: state.globalReducer}))(TempAuthMenu)
 
 export default AuthMenu

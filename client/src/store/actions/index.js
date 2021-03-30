@@ -64,3 +64,18 @@ export const setCountPostsView = (countPostsView)=>({
   type: TYPES.PROFILE.SET_COUNT_POSTS_VIEW,
   countPostsView
 })
+
+export const setCurrentPageComments = (currentPageComments)=>({
+  type: TYPES.DETAILSABOUTPOST.SET_CURRENT_PAGE_COMMENTS,
+  currentPageComments
+})
+
+export const setCommentsView = (commentsView)=>({
+  type: TYPES.DETAILSABOUTPOST.SET_COMMENTS_VIEW,
+  commentsView
+})
+
+export const setIsRemember = (isRemember)=>({
+  type: TYPES.SET_IS_REMEMBER,
+  isRemember
+})

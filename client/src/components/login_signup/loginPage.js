@@ -1,6 +1,12 @@
 import React, {useState} from "react";
 import {Button, Form} from "react-bootstrap";
-import {getItemFromLocalStore, setItemToLocalStore, setValueToStore} from "../../index";
+import {
+  getItemFromLocalStore,
+  getItemFromSessionStore,
+  setItemToLocalStore,
+  setItemToSessionStore,
+  setValueToStore
+} from "../../index";
 import LogInSignUp from "./login_signup";
 import {Link, useHistory} from "react-router-dom";
 import {connect} from "react-redux";
@@ -8,19 +14,36 @@ import {connect} from "react-redux";
 const TempLogIn = ({currentPage})=>{
   const [password, setPassword] = useState("")
   const [email, setEmail] = useState("")
-  const [isRemember, setIsRemember] = useState(false)
+  const [isRemember, setIsRemember] = useState(0)
   const history = useHistory()
 
-  const handleSetPassword = (e) => setPassword((e.target.value))
+  const handleSetPassword = (e) => setPassword(e.target.value)
   const handleSetEmail = (e) => setEmail(e.target.value)
-  const handleSetIsRemember = () => setIsRemember(isRemember ? false : true)
+  const handleSetIsRemember = () => setIsRemember(isRemember ? 0 : 1)
 
   const handleSubmit = ()=>{
-    if((email === "test@test.com" && password==="123") || (email === "1" && password==="1") || true){
+    if(email && password){
+      console.log(email, password, isRemember)
+      if(isRemember){
+        setItemToLocalStore("isRemember", isRemember)
+        setValueToStore({type: "SET_IS_REMEMBER_REQUEST", isRemember: isRemember})
+        history.push("/")
+        setItemToLocalStore("user_jwt", "2")
+        setValueToStore({type:"SET_JWT_REQUEST", userId: getItemFromLocalStore("user_jwt")})
+      }else{
+        history.push("/")
+        setItemToSessionStore("user_jwt", "2")
+        setValueToStore({type:"SET_JWT_REQUEST", userId: getItemFromSessionStore("user_jwt")})
+      }
+      /*history.push("/")
+      setItemToLocalStore("user_jwt", "2")
+      setValueToStore({type:"SET_JWT_REQUEST", userId: getItemFromLocalStore("user_jwt")})*/
+    }
+    /*if((email === "test@test.com" && password==="123") || (email === "1" && password==="1") || true){
       history.push("/")
       setItemToLocalStore("user_jwt", "2")
       setValueToStore({type:"SET_JWT_REQUEST", userId: getItemFromLocalStore("user_jwt")})
-    }
+    }*/
   }
 
   return(

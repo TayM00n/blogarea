@@ -14,9 +14,9 @@ const TempDetailsAboutPost = ({post, user, users, isLogin, width}) => {
   const Breadcrumb=({authorId, fName, lName})=>{
     return(
       <div className="px-3">
-        <Link to="../" className="text-muted text-decoration-none">Home</Link>>
+        <Link to="../" className="text-muted">Home</Link>>
         <Link to={"../profile/" + authorId}
-              className="text-muted text-decoration-none">{getFullName(fName, lName)}</Link>
+              className="text-muted">{getFullName(fName, lName)}</Link>
       </div>
     )
   }
